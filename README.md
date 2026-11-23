@@ -92,3 +92,7 @@ contradicted the original. Claude Sonnet 5.5 coded 100 pairs a second time, and 
 
 Bidder and asker usernames were stored only as salted hashes. The salt used for the paper is not published, and
 `mb_parse.py` carries a placeholder.
+
+## License
+
+The code is released under the MIT License (see `LICENSE`).

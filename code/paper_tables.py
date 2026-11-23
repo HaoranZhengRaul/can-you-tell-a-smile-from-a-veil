@@ -171,7 +171,7 @@ def main(inp, out):
                 cells.append("\\pend{}")
         n = (" (%d)" % rec["union"][g]["n"]) if PN and g in rec.get("union", {}) else ""
         L.append("\\quad %s%s & %s \\\\" % (lab, n, " & ".join(cells)))
-    L.append("\\multicolumn{4}{l}{\\emph{Blind labels on 100 listings: two LLM judges}} \\\\")
+    # Session 13 sweep: the blind-label rows repeated Table 6 (tab_pilot) and left this table; the counts stay for the checks below
     rc1 = {"union": (16, 22), "lex": (14, 22), "c1": (8, 22)}
     rc2 = {"union": (16, 21), "lex": (15, 21), "c1": (7, 21)}
     pr1 = {"union": (16, 20), "lex": (14, 15), "c1": (8, 11)}
@@ -181,8 +181,7 @@ def main(inp, out):
             k, n = dd[r]
             lo, hi = wilson(k, n)
             cells.append("%s [%s, %s]" % (r2s(k / n, 2), r2s(lo, 2), r2s(hi, 2)))
-        L.append("\\quad %s & %s \\\\" % (lab, " & ".join(cells)))
-    L.append("\\quad Pre-ChatGPT listings flagged (of 25) & 2 & 0 & 2 \\\\")
+        assert len(cells) == len(RULES), lab
     # Session 10 (PI, 2026-10-30: "lets include it for now"): the one-person human pilot, scored like the LLM judges by
     # blind_sample.py --score (job 884704); the same job reproduces the LLM judge rows above, checked here
     bs = os.path.join(inp, "blind_scores_s10.json")
@@ -303,7 +302,7 @@ def main(inp, out):
     if PN:
         b = PN["balance"]["union"]
         for lab, key, d in [("Log opening bid", "log_start", 2), ("Log photos", "log_photos", 2), ("Reserve set", "reserve_any", 3),
-                            ("Has characteristics table", "veh_f", 3), ("Vehicle age, years", "age", 2), ("Log miles", "log_miles", 2),
+                            ("Vehicle (year and make)", "veh_f", 3), ("Vehicle age, years", "age", 2), ("Log miles", "log_miles", 2),
                             ("Starts (reported yes)", "starts_yes", 3), ("Drives (reported yes)", "drivable_yes", 3), ("Title (reported yes)", "title_yes", 3)]:
             t, p = b["tool_era"].get(key), b["pooled"].get(key)
             if not (t and p):

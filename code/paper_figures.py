@@ -1160,7 +1160,7 @@ def rewrite_page(left_entry, after):
     marks = sorted(w for w in MARK if w in words)
     model = {"claude-haiku-5-5": "Claude Haiku 5.5"}[after["model"]]
     return dict(left_entry, blocks=blocks, marker_words=marks, n_mark=len(marks), typos=[],
-                head="Our rewrite of the same listing by %s, as a control" % model)
+                head="Our controlled rewrite of the same listing, by %s" % model)
 
 
 def fig_listings(listings, left, right, out, prev, name="fig_listings", cuts=None, split=0.5, bg=None, after=None, sales=None):

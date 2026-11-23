@@ -20,6 +20,12 @@ def r2s(x, d):
     return str(Decimal(repr(float(x))).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP))
 
 
+def pct_half_up(share):
+    """A share as a whole percent, half up on its decimal value (0.575 -> 58)."""
+    from decimal import ROUND_HALF_UP, Decimal
+    return str((Decimal(repr(float(share))) * 100).quantize(Decimal(1), rounding=ROUND_HALF_UP))
+
+
 def sg(x, d=1):
     """Signed number with a math minus, e.g. +1.2 or $-$1.2."""
     s = r2s(abs(x), d)
@@ -404,7 +410,8 @@ def main(inp, out):
         e = mk[key]["subcat_m"]
         mac(nm, pfmt(math.erfc(abs(e["b"] / e["se"]) / math.sqrt(2))), "two-sided p of the assistant-era gap, %s" % key)
     e = mk["n_q_before_end"]["subcat_m"]
-    mac("tQ", "%s [%s, %s] on a base of %.2f" % (sg(e["b"], 2), sg(e["b"] - 1.96 * e["se"], 2), sg(e["b"] + 1.96 * e["se"], 2), e["mean"]))
+    # the base is the human-written listings' mean, as for the 86%% of tSold (Session 13 sweep; it had been all 1,518 listings' 1.25)
+    mac("tQ", "%s [%s, %s] on a base of %.2f" % (sg(e["b"], 2), sg(e["b"] - 1.96 * e["se"], 2), sg(e["b"] + 1.96 * e["se"], 2), H["union"]["pooled_n_q_before_end"]["ref"]["mean"]))
     # same agency, same start day (paper_numbers.py block H): a sentence in Section 5 once it exists, a note until then
     SDm = PN.get("same_day") if PN else None
     if SDm and "error" not in SDm and SDm["union"].get("base|sold"):
@@ -451,10 +458,10 @@ def main(inp, out):
     e = h["veh_pooled"]
     med = e["ref"]["median_price"]
     p, lo, hi = pexp(e["b"], e["se"])
-    mac("pVehDollar", "%s [%s, %s] on a vehicle at the %s of \\$%s" % (
+    mac("pVehDollar", "%s [%s, %s] on a vehicle at \\$%s, the %s" % (
         ("+\\$" if p >= 0 else "\\ensuremath{-}\\$") + thou(abs(round(med * p / 100))), ("\\ensuremath{-}\\$" if lo < 0 else "+\\$") + thou(abs(round(med * lo / 100))),
         ("+\\$" if hi >= 0 else "\\ensuremath{-}\\$") + thou(abs(round(med * hi / 100))),
-        "median price", thou(round(med))))
+        thou(round(med)), "median closing price of the assistant era's human-written vehicles"))
     mac("pVehMDE", "%d\\%%" % round(100 * (math.exp(2.8 * e["se"]) - 1)))
     mac("nVeh", thou(e["n"]))
     mac("nVehAg", thou(e["clusters"]))
@@ -1050,6 +1057,8 @@ def main(inp, out):
         assert nq == q_tot, ("answers file and questions disagree", nq, q_tot)
         mac("ansN", thou(na), "questions answered, of qTotal")
         mac("ansShare", "%.1f\\%%" % (100 * na / nq))
+        nb = sum(round(bp[p_]["questions"] * bp[p_]["answered_before_close"]) for p_ in bp)
+        mac("ansBeforeShare", "%.1f\\%%" % (100 * nb / nq), "share of questions answered before the close (Session 13 sweep)")
         mac("ansDelays", "%s, %s and %s" % tuple(r2s(bp[p_]["delay_h_median"], 1) for p_ in ("P0", "P1", "P2")), "median hours to the answer by period")
         mac("ansWords", "%d" % round(bp["P2"]["words_median"]))
         T = AQ["tool_era_by_ai"]
@@ -1084,7 +1093,7 @@ def main(inp, out):
         mac("qualCorrDiff" + tag, "%s [%s, %s]" % (sg(c["est"], 2), sg(c["lo"], 2), sg(c["hi"], 2)), "change in the correlation of score and item quality")
         mac("qualCorrOrig" + tag, "%.2f" % G["corr_orig_r"]["est"])
         mac("qualCorrAI" + tag, "%.2f" % G["corr_ai_r"]["est"])
-        mac("qualPermP" + tag, "%.3f" % G["perm_p_slope"], "permutation p of the slope of the lift on item quality")
+        mac("qualPermP" + tag, r2s(G["perm_p_slope"], 3), "permutation p of the slope of the lift on item quality")
         sl = G["slope_lift_on_r"]
         mac("qualSlope" + tag, "%s [%s, %s]" % (sg(sl["est"], 3), sg(sl["lo"], 3), sg(sl["hi"], 3)), "slope of the boost on item quality (Session 12, review round 2)")
     A0 = QS["groups"]["all"]
@@ -1117,7 +1126,7 @@ def main(inp, out):
         assert abs(g["slope_full"] - QS["groups"][grp]["slope_lift_on_r"]["est"]) < 1e-9
         mac("qualSlopeTrim" + tag, "%s [%s, %s]" % (sg(g["slope"]["est"], 3), sg(g["slope"]["lo"], 3), sg(g["slope"]["hi"], 3)),
             "slope without the %d lots below -5" % g["n_dropped"])
-        mac("qualPermPTrim" + tag, "%.2f" % g["perm_p"])
+        mac("qualPermPTrim" + tag, r2s(g["perm_p"], 2))
         mac("qualTrimDropped" + tag, str(g["n_dropped"]))
     # (b) Promotional words other than the 15 AI marker words (job 842907, paper_numbers.json review_r1): the flag cannot
     # have put them there.
@@ -1200,16 +1209,16 @@ def main(inp, out):
                     assert S[side]["contradicts"]["k"] == 0, "the text says none of these rewrites contradicted the original"
         mac("fidNew%sDiffUnit" % tag, pp(S["diff_unit"]), "permutation p %.3f" % S["diff_unit"]["perm_p"])
         mac("fidNew%sDiffCond" % tag, pp(S["diff_condition"]), "permutation p %.3f" % S["diff_condition"]["perm_p"])
-        mac("fidNew%sPermP" % tag, "%.3f" % S["diff_unit"]["perm_p"])
+        mac("fidNew%sPermP" % tag, r2s(S["diff_unit"]["perm_p"], 3))
         if s == "defect":
-            mac("fidNewDefAnyPermP", "%.3f" % S["diff_any"]["perm_p"], "permutation p of the any-claim gap by defect")
+            mac("fidNewDefAnyPermP", r2s(S["diff_any"]["perm_p"], 3), "permutation p of the any-claim gap by defect")
         mac("fidNew%sDiffUnitHi" % tag, r2s(100 * S["diff_unit"]["hi"], 1), "upper end, percentage points")
     Q = FS["splits_appealing"]["quality"]
     for side, st in (("low", "Low"), ("mid", "Mid"), ("high", "High")):
         mac("fidNewQual%sUnit" % st, sh(Q[side]["unit_claim"]), "%d of %d" % (Q[side]["unit_claim"]["k"], Q[side]["unit_claim"]["n"]))
         mac("fidNewQual%sN" % st, thou(Q[side]["unit_claim"]["n"]))
     mac("fidNewQualDiffUnit", pp(Q["diff_unit"]), "bottom minus top third; permutation p %.3f" % Q["diff_unit"]["perm_p"])
-    mac("fidNewQualPermP", "%.2f" % Q["diff_unit"]["perm_p"])
+    mac("fidNewQualPermP", r2s(Q["diff_unit"]["perm_p"], 2))
     mac("fidNewQualDiffUnitHi", r2s(100 * Q["diff_unit"]["hi"], 1), "upper end, percentage points")
     CA = FS["claims_appealing"]
     for k, nm in (("total", "Total"), ("condition", "Cond"), ("specification", "Spec"), ("suitability", "Suit"),
@@ -1220,7 +1229,7 @@ def main(inp, out):
     S_def = FS["splits_appealing"]["defect"]
     mac("fidNewDefDiffAny", pp(S_def["diff_any"]), "permutation p %.3f" % S_def["diff_any"]["perm_p"])
     mac("fidNewDefYesAny", sh(S_def["yes"]["any_claim"])); mac("fidNewDefNoAny", sh(S_def["no"]["any_claim"]))
-    mac("fidNewDefPermPAny", "%.3f" % S_def["diff_any"]["perm_p"])
+    mac("fidNewDefPermPAny", r2s(S_def["diff_any"]["perm_p"], 3))
     eq = lambda k: sum(100.0 * FS["cells"][c][k]["k"] / FS["cells"][c][k]["n"] for c in ("claude-opus-5-5|V1_enhance", "claude-sonnet-5-5|V1_enhance", "claude-haiku-5-5|V1_enhance")) / 3
     mac("fidEqAny", "%s\\%%" % r2s(eq("any_claim"), 0), "appealing, the three models weighted equally")
     mac("fidEqUnit", "%s\\%%" % r2s(eq("unit_claim"), 0))
@@ -1325,8 +1334,8 @@ def main(inp, out):
         mac("buryShareOrig" + tag, "%d\\%%" % round(100 * x["share_before_orig_median"]), "median share of the words before it, original")
         mac("buryShareAI" + tag, "%d\\%%" % round(100 * x["share_before_rewrite_median"]))
         mac("buryLinesAI" + tag, num(x["lines_before_rewrite_median"]), "median lines before it, rewrite")
-        mac("buryWithinOrig" + tag, "%d\\%%" % round(100 * x["within_25_orig"]), "share with the problem within the first 25 words, original")
-        mac("buryWithinAI" + tag, "%d\\%%" % round(100 * x["within_25_rewrite"]))
+        mac("buryWithinOrig" + tag, "%s\\%%" % pct_half_up(x["within_25_orig"]), "share with the problem within the first 25 words, original")
+        mac("buryWithinAI" + tag, "%s\\%%" % pct_half_up(x["within_25_rewrite"]))
     R_ = BU["selections"]["raw"]
     mac("buryRawN", str(R_["n_pairs"]), "the check: the strict pattern on the raw original")
     mac("buryRawShiftApp", sgn(R_["groups"]["appealing"]["diff_median"]))

@@ -1,0 +1,193 @@
+{
+ "ai_scope": "tool",
+ "veh_pooled": {
+  "b": 0.039772672182115755,
+  "se": 0.12421357595730541,
+  "n": 2824,
+  "clusters": 581,
+  "within_r2": 0.33774978676361656,
+  "median_price": 4550.0,
+  "label": "V1 pooled 2019-26, agency+make x model+body+subcat x quarter",
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 587,
+   "n_ai_tool_era": 144,
+   "median_price": 3999.9999999999995
+  }
+ },
+ "veh_from_dec2022": {
+  "b": 0.2908116931781668,
+  "se": 0.21320061196691306,
+  "n": 1007,
+  "clusters": 277,
+  "within_r2": 0.3349363058878775,
+  "median_price": 4550.0,
+  "label": "V2 pooled from Dec 2022 (ChatGPT era only)"
+ },
+ "veh_tool_era": {
+  "b": 0.1489635431244204,
+  "se": 0.30921041270924765,
+  "n": 300,
+  "clusters": 79,
+  "within_r2": 0.4206009738433011,
+  "median_price": 4550.0,
+  "label": "V3 tool era only"
+ },
+ "veh_nobody": {
+  "b": 0.0065599010640832525,
+  "se": 0.11592949945705484,
+  "n": 2861,
+  "clusters": 588,
+  "within_r2": 0.3349557363505541,
+  "median_price": 4550.0,
+  "label": "V1b pooled, without body-style FE"
+ },
+ "veh_pooled_start": {
+  "b": 0.02852630914561105,
+  "se": 0.12409507920908128,
+  "n": 2824,
+  "clusters": 581,
+  "within_r2": 0.3536801298545411,
+  "median_price": 4550.0,
+  "label": "V1c pooled, + log opening bid (seller's own price signal)"
+ },
+ "veh_residual": {
+  "b": -0.14252514986733436,
+  "se": 0.1258949112898367,
+  "n": 450,
+  "clusters": 123,
+  "within_r2": 0.003151343456395339,
+  "median_price": 4550.0,
+  "label": "V4 tool era, hedonic residual, agency FE",
+  "n_ai": 144
+ },
+ "veh_residual_month": {
+  "b": -0.057494748793572074,
+  "se": 0.1390248781421395,
+  "n": 450,
+  "clusters": 123,
+  "within_r2": 0.0005087253103595035,
+  "median_price": 4550.0,
+  "label": "V4b tool era, hedonic residual, agency + end-month FE",
+  "n_ai": 144
+ },
+ "veh_residual_quarter": {
+  "b": -0.058224124469183,
+  "se": 0.13497636913962202,
+  "n": 450,
+  "clusters": 123,
+  "within_r2": 0.0005183654662865855,
+  "median_price": 4550.0,
+  "label": "V4c tool era, hedonic residual, agency + end-quarter FE",
+  "n_ai": 144
+ },
+ "goods_pooled": {
+  "b": 0.18144262344756484,
+  "se": 0.1894950897429419,
+  "n": 6282,
+  "clusters": 868,
+  "within_r2": 0.11276571660833834,
+  "median_price": 300.49958402633433,
+  "label": "G1 other goods, pooled 2019-26, agency + subcat x quarter"
+ },
+ "goods_pooled_start": {
+  "b": -0.021459291762752065,
+  "se": 0.17110187402635377,
+  "n": 6282,
+  "clusters": 868,
+  "within_r2": 0.37348602300499356,
+  "median_price": 300.49958402633433,
+  "label": "G1c other goods, pooled, + log opening bid"
+ },
+ "balance_goods_log_start": {
+  "b": 0.32815257739420906,
+  "se": 0.1670833667658629,
+  "n": 6282
+ },
+ "all_pooled": {
+  "b": 0.071930229773976,
+  "se": 0.11628149465510822,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.1074522872849728,
+  "median_price": 975.0000000000001,
+  "label": "G2 all listings, pooled 2019-26, agency + subcat x quarter"
+ },
+ "all_pooled_start": {
+  "b": -0.028018205401296556,
+  "se": 0.11187906822428605,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.323232825103255,
+  "median_price": 975.0000000000001,
+  "label": "G2c all listings, pooled, + log opening bid",
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1557,
+   "n_ai_tool_era": 384,
+   "median_price": 879.9999999999998
+  }
+ },
+ "balance_veh_log_start": {
+  "b": 0.1313736695597811,
+  "se": 0.28276878173528436,
+  "n": 2824
+ },
+ "pooled_sold": {
+  "b": 0.005249080019870715,
+  "se": 0.023443336322068624,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 0.8799372004627334,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1804,
+   "n_ai_tool_era": 472,
+   "mean": 0.8630820399113082
+  }
+ },
+ "pooled_log_bids": {
+  "b": 0.07280039812121085,
+  "se": 0.09624700879260228,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 2.4685813683441964,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1804,
+   "n_ai_tool_era": 472,
+   "mean": 2.40526566990812
+  }
+ },
+ "pooled_log_views": {
+  "b": 0.04229084327812804,
+  "se": 0.04725232328850365,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 7.021615408496344,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1804,
+   "n_ai_tool_era": 472,
+   "mean": 6.768387624392232
+  }
+ },
+ "pooled_n_q_before_end": {
+  "b": 0.1684863776704911,
+  "se": 0.1798123461740024,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 1.2054205916377458,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1804,
+   "n_ai_tool_era": 472,
+   "mean": 1.4262749445676275
+  }
+ },
+ "n_vehicles_priced": 4331,
+ "n_ai_vehicles_tool_era": 144,
+ "vehicle_median_price_tool_era": 4550.0,
+ "hedonic_out_of_time_r2": 0.5874230170667097,
+ "ai_rule": "union"
+}

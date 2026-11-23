@@ -1,0 +1,234 @@
+{
+ "source": "code/rewrite_audit.py --arm-s12 (Session 12)",
+ "coder_model": "claude-opus-5-5",
+ "n": 100,
+ "arithmetic_errors": 0,
+ "flags": {
+  "any_claim": {
+   "appealing": {
+    "k": 99,
+    "n": 100,
+    "share": 0.99,
+    "lo": 0.9455138032509935,
+    "hi": 0.9982325679553905
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.99,
+    "lo": -1.0,
+    "hi": -0.97,
+    "n": 100,
+    "a_only": 99,
+    "b_only": 0
+   }
+  },
+  "unit_claim": {
+   "appealing": {
+    "k": 62,
+    "n": 100,
+    "share": 0.62,
+    "lo": 0.5220975521761144,
+    "hi": 0.7090240081193264
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.62,
+    "lo": -0.71,
+    "hi": -0.53,
+    "n": 100,
+    "a_only": 62,
+    "b_only": 0
+   }
+  },
+  "condition": {
+   "appealing": {
+    "k": 31,
+    "n": 100,
+    "share": 0.31,
+    "lo": 0.22779697154852568,
+    "hi": 0.4062605579836929
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.31,
+    "lo": -0.4,
+    "hi": -0.23,
+    "n": 100,
+    "a_only": 31,
+    "b_only": 0
+   }
+  },
+  "specification": {
+   "appealing": {
+    "k": 44,
+    "n": 100,
+    "share": 0.44,
+    "lo": 0.3467202656095169,
+    "hi": 0.5377189542427627
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.44,
+    "lo": -0.54,
+    "hi": -0.35,
+    "n": 100,
+    "a_only": 44,
+    "b_only": 0
+   }
+  },
+  "suitability": {
+   "appealing": {
+    "k": 96,
+    "n": 100,
+    "share": 0.96,
+    "lo": 0.9016292850152788,
+    "hi": 0.9843366961172447
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.96,
+    "lo": -0.99,
+    "hi": -0.92,
+    "n": 100,
+    "a_only": 96,
+    "b_only": 0
+   }
+  },
+  "contradicts": {
+   "appealing": {
+    "k": 3,
+    "n": 100,
+    "share": 0.03,
+    "lo": 0.010254523944281516,
+    "hi": 0.08451936489857499
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.03,
+    "lo": -0.07,
+    "hi": 0.0,
+    "n": 100,
+    "a_only": 3,
+    "b_only": 0
+   }
+  },
+  "generic": {
+   "appealing": {
+    "k": 90,
+    "n": 100,
+    "share": 0.9,
+    "lo": 0.8256343377898756,
+    "hi": 0.9447708631949274
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": -0.9,
+    "lo": -0.96,
+    "hi": -0.84,
+    "n": 100,
+    "a_only": 90,
+    "b_only": 0
+   }
+  },
+  "any_drop": {
+   "appealing": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "appealing_only_info": {
+    "k": 2,
+    "n": 100,
+    "share": 0.02,
+    "lo": 0.0055019675006616475,
+    "hi": 0.07001179131757478
+   },
+   "paired": {
+    "diff": 0.02,
+    "lo": 0.0,
+    "hi": 0.05,
+    "n": 100,
+    "a_only": 0,
+    "b_only": 2
+   }
+  },
+  "defect_dropped_or_softened": {
+   "appealing": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "appealing_only_info": {
+    "k": 0,
+    "n": 100,
+    "share": 0.0,
+    "lo": 0.0,
+    "hi": 0.03699349876899627
+   },
+   "paired": {
+    "diff": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 100,
+    "a_only": 0,
+    "b_only": 0
+   }
+  }
+ },
+ "facts_kept_only_info": 0.9982142857142857,
+ "claims_only_info": {
+  "condition": 0,
+  "specification": 0,
+  "suitability": 0,
+  "other": 0
+ },
+ "length_ratio_appealing": 3.8285714285714283,
+ "length_ratio_only_info": 2.2283653846153846,
+ "identical_to_original": 0
+}

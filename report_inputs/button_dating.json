@@ -1,0 +1,547 @@
+{
+ "generated_by": "code/button_dating.py",
+ "job": "874348 s9_btndate (2026-10-28)",
+ "markers": {
+  "box": "improvedDescriptionText",
+  "later": "aiDescriptionContent"
+ },
+ "panel_pages": 17377,
+ "status": {
+  "ok": 17377,
+  "missing": 0,
+  "unreadable": 0
+ },
+ "months": {
+  "2016-01": {
+   "pages": 1,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2016-07": {
+   "pages": 1,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2016-08": {
+   "pages": 13,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2016-09": {
+   "pages": 1,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2017-02": {
+   "pages": 26,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2017-04": {
+   "pages": 12,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2017-07": {
+   "pages": 35,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2017-10": {
+   "pages": 8,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-07": {
+   "pages": 453,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-08": {
+   "pages": 442,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-09": {
+   "pages": 39,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-10": {
+   "pages": 5,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-11": {
+   "pages": 4,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2019-12": {
+   "pages": 25,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-04": {
+   "pages": 16,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-05": {
+   "pages": 10,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-06": {
+   "pages": 1,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-08": {
+   "pages": 322,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-09": {
+   "pages": 427,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-10": {
+   "pages": 1098,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-11": {
+   "pages": 219,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2020-12": {
+   "pages": 190,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-01": {
+   "pages": 603,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-02": {
+   "pages": 184,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-03": {
+   "pages": 200,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-04": {
+   "pages": 260,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-05": {
+   "pages": 216,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-06": {
+   "pages": 126,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-07": {
+   "pages": 110,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-08": {
+   "pages": 132,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-09": {
+   "pages": 100,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-10": {
+   "pages": 253,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-11": {
+   "pages": 163,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2021-12": {
+   "pages": 209,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-01": {
+   "pages": 182,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-02": {
+   "pages": 64,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-03": {
+   "pages": 65,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-04": {
+   "pages": 34,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-05": {
+   "pages": 311,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-06": {
+   "pages": 165,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-07": {
+   "pages": 172,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-08": {
+   "pages": 184,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-09": {
+   "pages": 77,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-10": {
+   "pages": 98,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-11": {
+   "pages": 179,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2022-12": {
+   "pages": 333,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-01": {
+   "pages": 135,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-02": {
+   "pages": 540,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-03": {
+   "pages": 257,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-04": {
+   "pages": 27,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-05": {
+   "pages": 97,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-06": {
+   "pages": 221,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-07": {
+   "pages": 5,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-08": {
+   "pages": 21,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-09": {
+   "pages": 83,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-10": {
+   "pages": 209,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-11": {
+   "pages": 78,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2023-12": {
+   "pages": 278,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-01": {
+   "pages": 6,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-02": {
+   "pages": 166,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-03": {
+   "pages": 345,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-04": {
+   "pages": 340,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-05": {
+   "pages": 395,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-06": {
+   "pages": 253,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-07": {
+   "pages": 203,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-08": {
+   "pages": 233,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-09": {
+   "pages": 407,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-10": {
+   "pages": 189,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-11": {
+   "pages": 218,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2024-12": {
+   "pages": 211,
+   "missing": 0,
+   "box": 0,
+   "later": 0
+  },
+  "2025-01": {
+   "pages": 236,
+   "missing": 0,
+   "box": 11,
+   "later": 0
+  },
+  "2025-02": {
+   "pages": 205,
+   "missing": 0,
+   "box": 204,
+   "later": 0
+  },
+  "2025-03": {
+   "pages": 263,
+   "missing": 0,
+   "box": 261,
+   "later": 0
+  },
+  "2025-04": {
+   "pages": 441,
+   "missing": 0,
+   "box": 440,
+   "later": 0
+  },
+  "2025-05": {
+   "pages": 386,
+   "missing": 0,
+   "box": 386,
+   "later": 0
+  },
+  "2025-06": {
+   "pages": 517,
+   "missing": 0,
+   "box": 507,
+   "later": 0
+  },
+  "2025-07": {
+   "pages": 342,
+   "missing": 0,
+   "box": 341,
+   "later": 0
+  },
+  "2025-08": {
+   "pages": 483,
+   "missing": 0,
+   "box": 482,
+   "later": 0
+  },
+  "2025-09": {
+   "pages": 170,
+   "missing": 0,
+   "box": 170,
+   "later": 0
+  },
+  "2025-10": {
+   "pages": 275,
+   "missing": 0,
+   "box": 275,
+   "later": 0
+  },
+  "2025-11": {
+   "pages": 415,
+   "missing": 0,
+   "box": 415,
+   "later": 0
+  },
+  "2025-12": {
+   "pages": 192,
+   "missing": 0,
+   "box": 190,
+   "later": 0
+  },
+  "2026-01": {
+   "pages": 286,
+   "missing": 0,
+   "box": 286,
+   "later": 4
+  },
+  "2026-02": {
+   "pages": 206,
+   "missing": 0,
+   "box": 206,
+   "later": 206
+  },
+  "2026-03": {
+   "pages": 243,
+   "missing": 0,
+   "box": 243,
+   "later": 241
+  },
+  "2026-04": {
+   "pages": 31,
+   "missing": 0,
+   "box": 31,
+   "later": 31
+  },
+  "2026-05": {
+   "pages": 1,
+   "missing": 0,
+   "box": 1,
+   "later": 1
+  }
+ },
+ "first_with_box": {
+  "capture_ts": "20250129184626",
+  "item": "69668899"
+ },
+ "last_before_first": {
+  "capture_ts": "20250129132257",
+  "item": "71609187"
+ },
+ "n_without_box_from_2025-02": 18
+}

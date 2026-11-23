@@ -1,0 +1,49 @@
+{
+ "source": "code/rewrite_audit.py --agreement-s12",
+ "second_coder_model": "claude-sonnet-5-5",
+ "n": 100,
+ "flags": {
+  "any_claim": {
+   "agree": 0.96,
+   "kappa": 0.9197109594540345,
+   "first": 53,
+   "second": 53
+  },
+  "unit_claim": {
+   "agree": 0.92,
+   "kappa": 0.8058252427184467,
+   "first": 30,
+   "second": 28
+  },
+  "condition": {
+   "agree": 0.95,
+   "kappa": 0.8409669211195927,
+   "first": 18,
+   "second": 21
+  },
+  "suitability": {
+   "agree": 0.95,
+   "kappa": 0.8999999999999999,
+   "first": 50,
+   "second": 47
+  },
+  "generic": {
+   "agree": 0.95,
+   "kappa": 0.8994368463395012,
+   "first": 48,
+   "second": 43
+  },
+  "any_drop": {
+   "agree": 0.98,
+   "kappa": 0.4897959183673481,
+   "first": 2,
+   "second": 2
+  },
+  "defect_dropped_or_softened": {
+   "agree": 1.0,
+   "kappa": NaN,
+   "first": 0,
+   "second": 0
+  }
+ }
+}

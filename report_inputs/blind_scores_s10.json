@@ -1,0 +1,246 @@
+{
+ "n_listings": 100,
+ "strata": {
+  "post_high": 25,
+  "post_low": 25,
+  "post_mid": 25,
+  "pre_control": 25
+ },
+ "flags": {
+  "union": [
+   20,
+   2
+  ],
+  "lex": [
+   15,
+   0
+  ],
+  "c1": [
+   11,
+   2
+  ]
+ },
+ "labellers": {
+  "llm_judge1": {
+   "n": {
+    "A": 22,
+    "U": 9,
+    "H": 69
+   },
+   "controls_labelled_ai": [
+    0,
+    25
+   ],
+   "by_stratum": {
+    "post_high": {
+     "A": 16,
+     "U": 6,
+     "H": 3
+    },
+    "post_low": {
+     "A": 0,
+     "U": 0,
+     "H": 25
+    },
+    "post_mid": {
+     "A": 6,
+     "U": 3,
+     "H": 16
+    },
+    "pre_control": {
+     "A": 0,
+     "U": 0,
+     "H": 25
+    }
+   },
+   "recall_union": [
+    16,
+    22
+   ],
+   "precision_tool_union": [
+    16,
+    20
+   ],
+   "recall_lex": [
+    14,
+    22
+   ],
+   "precision_tool_lex": [
+    14,
+    15
+   ],
+   "recall_c1": [
+    8,
+    22
+   ],
+   "precision_tool_c1": [
+    8,
+    11
+   ]
+  },
+  "llm_judge2": {
+   "n": {
+    "A": 21,
+    "U": 10,
+    "H": 69
+   },
+   "controls_labelled_ai": [
+    0,
+    25
+   ],
+   "by_stratum": {
+    "post_high": {
+     "A": 17,
+     "U": 3,
+     "H": 5
+    },
+    "post_low": {
+     "A": 0,
+     "U": 0,
+     "H": 25
+    },
+    "post_mid": {
+     "A": 4,
+     "U": 6,
+     "H": 15
+    },
+    "pre_control": {
+     "A": 0,
+     "U": 1,
+     "H": 24
+    }
+   },
+   "recall_union": [
+    16,
+    21
+   ],
+   "precision_tool_union": [
+    16,
+    20
+   ],
+   "recall_lex": [
+    15,
+    21
+   ],
+   "precision_tool_lex": [
+    15,
+    15
+   ],
+   "recall_c1": [
+    7,
+    21
+   ],
+   "precision_tool_c1": [
+    7,
+    11
+   ]
+  },
+  "human_pilot": {
+   "n": {
+    "A": 30,
+    "U": 13,
+    "H": 57
+   },
+   "controls_labelled_ai": [
+    4,
+    25
+   ],
+   "by_stratum": {
+    "post_high": {
+     "A": 16,
+     "U": 4,
+     "H": 5
+    },
+    "post_low": {
+     "A": 3,
+     "U": 1,
+     "H": 21
+    },
+    "post_mid": {
+     "A": 7,
+     "U": 6,
+     "H": 12
+    },
+    "pre_control": {
+     "A": 4,
+     "U": 2,
+     "H": 19
+    }
+   },
+   "recall_union": [
+    16,
+    30
+   ],
+   "precision_tool_union": [
+    15,
+    20
+   ],
+   "recall_lex": [
+    13,
+    30
+   ],
+   "precision_tool_lex": [
+    13,
+    15
+   ],
+   "recall_c1": [
+    8,
+    30
+   ],
+   "precision_tool_c1": [
+    7,
+    11
+   ]
+  }
+ },
+ "agreement": {
+  "llm_judge1|llm_judge2": {
+   "agree_of_100": 89,
+   "kappa3": 0.7653082995519523,
+   "kappa_ai_vs_not": 0.8518957345971562,
+   "cross": {
+    "AA": 19,
+    "AU": 3,
+    "AH": 0,
+    "UA": 2,
+    "UU": 4,
+    "UH": 3,
+    "HA": 0,
+    "HU": 3,
+    "HH": 66
+   }
+  },
+  "llm_judge1|human_pilot": {
+   "agree_of_100": 69,
+   "kappa3": 0.4139886578449905,
+   "kappa_ai_vs_not": 0.4329896907216497,
+   "cross": {
+    "AA": 15,
+    "AU": 3,
+    "AH": 4,
+    "UA": 4,
+    "UU": 3,
+    "UH": 2,
+    "HA": 11,
+    "HU": 7,
+    "HH": 51
+   }
+  },
+  "llm_judge2|human_pilot": {
+   "agree_of_100": 74,
+   "kappa3": 0.5100810250612399,
+   "kappa_ai_vs_not": 0.5572916666666667,
+   "cross": {
+    "AA": 17,
+    "AU": 2,
+    "AH": 2,
+    "UA": 2,
+    "UU": 5,
+    "UH": 3,
+    "HA": 11,
+    "HU": 6,
+    "HH": 52
+   }
+  }
+ }
+}

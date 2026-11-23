@@ -1,0 +1,71 @@
+{
+ "veh_pooled": {
+  "b": -0.013984980470487983,
+  "se": 0.10426678451990806,
+  "n": 2824,
+  "clusters": 581,
+  "within_r2": 0.3376713067797602,
+  "median_price": 4550.0,
+  "label": "V1 pooled 2019-26, agency+make x model+body+subcat x quarter"
+ },
+ "veh_residual": {
+  "b": -0.11728180404284588,
+  "se": 0.16770221079101322,
+  "n": 450,
+  "clusters": 123,
+  "within_r2": 0.0012322420114948551,
+  "median_price": 4550.0,
+  "label": "V4 tool era, hedonic residual, agency FE"
+ },
+ "all_pooled": {
+  "b": 0.2390737190770006,
+  "se": 0.11354571812837377,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.10734976744030944,
+  "median_price": 975.0000000000001,
+  "label": "G2 all listings, pooled 2019-26, agency + subcat x quarter"
+ },
+ "all_pooled_start": {
+  "b": 0.1672319152753948,
+  "se": 0.11080581974556383,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.3230783116337319,
+  "median_price": 975.0000000000001,
+  "label": "G2c all listings, pooled, + log opening bid"
+ },
+ "pooled_sold": {
+  "b": 0.02200745826927616,
+  "se": 0.02674628721668679,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 0.8799372004627334
+ },
+ "pooled_log_bids": {
+  "b": 0.1347546480221986,
+  "se": 0.0952235167090249,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 2.4685813683441964
+ },
+ "pooled_log_views": {
+  "b": 0.0854817525695854,
+  "se": 0.04403174142240274,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 7.021615408496344
+ },
+ "pooled_n_q_before_end": {
+  "b": 0.26258833411313376,
+  "se": 0.15433859245078932,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 1.2054205916377458
+ },
+ "n_vehicles_priced": 4331,
+ "n_ai_vehicles_tool_era": 97,
+ "vehicle_median_price_tool_era": 4550.0,
+ "hedonic_out_of_time_r2": 0.5874236436283948,
+ "ai_rule": "c1"
+}

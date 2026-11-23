@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Listing study</title>
+<!-- Blind labelling app (Session 9). Built by code/label_app/build_label_app.py, which fills CONFIG and ITEMS.
+     The app holds listing texts under new random ids only; the key that links them to listings stays elsewhere. -->
+<style>
+  :root { --ink:#1d1d1f; --muted:#5b5b66; --line:#d6d6de; --bg:#ffffff; --card:#f6f6f8; --accent:#2a5bd7; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 20px 64px; }
+  h1 { font-size: 1.45rem; line-height: 1.25; margin: 0 0 14px; }
+  h2 { font-size: 1.08rem; margin: 22px 0 8px; }
+  p, li { margin: 0 0 10px; }
+  ul { padding-left: 1.2em; }
+  .muted { color: var(--muted); font-size: .92rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; margin: 12px 0 18px; }
+  .ltitle { font-weight: 650; margin-bottom: 8px; }
+  .ldesc { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  button { font: inherit; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink);
+    padding: 12px 14px; cursor: pointer; }
+  button:hover { border-color: #9a9aa6; }
+  button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.chosen { border: 2px solid var(--ink); font-weight: 650; }
+  button.linklike { border: none; background: none; color: var(--accent); padding: 4px 0; }
+  button:disabled { opacity: .45; cursor: default; }
+  .key { display: inline-block; min-width: 1.5em; padding: 0 .35em; margin-left: 8px; border: 1px solid var(--line);
+    border-radius: 4px; font-size: .78rem; color: var(--muted); }
+  .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin: 6px 0 4px; }
+  .bar > div { height: 100%; background: var(--accent); width: 0; }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .hidden { display: none !important; }
+  label.opt { display: block; padding: 5px 0; }
+  textarea { width: 100%; min-height: 80px; font: inherit; padding: 8px; border: 1px solid var(--line); border-radius: 8px; }
+  .code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.15rem; letter-spacing: .04em;
+    background: var(--card); border: 1px solid var(--line); padding: 6px 10px; border-radius: 6px; display: inline-block; }
+  .answers { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; word-break: break-all;
+    background: var(--card); border: 1px solid var(--line); padding: 8px; border-radius: 6px; }
+  .note { background: #fff6e5; border: 1px solid #f0c36d; border-radius: 8px; padding: 10px 12px; }
+  @media (max-width: 560px) { .choices { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <section id="s-consent">
+    <h1>Who wrote this listing: a person or AI?</h1>
+    <div id="consent-text"></div>
+    <p><label class="opt"><input type="checkbox" id="agree"> I have read the above and agree to take part.</label></p>
+    <button class="primary" id="b-consent" disabled>Continue</button>
+  </section>
+
+  <section id="s-instr" class="hidden">
+    <h1>Instructions</h1>
+    <p>U.S. towns, school districts and other public agencies sell used vehicles and equipment on an online auction
+      site, and a staff member writes each listing. In 2025 the site added a button that rewrites a listing with an AI
+      writing tool; staff can keep the AI version or their own.</p>
+    <p>You will read <b id="n-real"></b> listings, plus two short attention checks. <span id="n-pre"></span> of the
+      listings were written before AI writing tools existed. The other <span id="n-post"></span> come from 2025 or 2026, and some of those were written or rewritten,
+      in whole or in part, by AI.</p>
+    <p>For each listing, choose the answer that fits best:</p>
+    <ul>
+      <li><b>AI wrote all or part of it</b></li>
+      <li><b>Not sure</b></li>
+      <li><b>A person wrote it</b></li>
+    </ul>
+    <p>Use your own judgment. Please do not paste the text into any website, chatbot or AI detector. The attention
+      checks tell you what to choose.</p>
+    <p class="muted">Phone numbers, e-mail addresses, web links and people's names have been replaced with [phone],
+      [email], [link] and [name].</p>
+    <p class="muted">Keyboard: press 1, 2 or 3 to answer, and Backspace to go back. About <span id="est-min"></span>
+      minutes in all. Your place is saved if you reload the page.</p>
+    <button class="primary" id="b-start">Start</button>
+  </section>
+
+  <section id="s-task" class="hidden">
+    <div class="row muted"><span id="prog"></span><button class="linklike" id="b-back">Back</button></div>
+    <div class="bar"><div id="barfill"></div></div>
+    <div class="card">
+      <div class="ltitle" id="ltitle"></div>
+      <div class="ldesc" id="ldesc"></div>
+    </div>
+    <div class="choices">
+      <button data-label="A">AI wrote all or part of it<span class="key">1</span></button>
+      <button data-label="U">Not sure<span class="key">2</span></button>
+      <button data-label="H">A person wrote it<span class="key">3</span></button>
+    </div>
+  </section>
+
+  <section id="s-end" class="hidden">
+    <h1>Almost done</h1>
+    <h2>How often do you use AI writing tools such as ChatGPT?</h2>
+    <div id="ai-use">
+      <label class="opt"><input type="radio" name="aiuse" value="never"> Never</label>
+      <label class="opt"><input type="radio" name="aiuse" value="tried"> I have tried them a few times</label>
+      <label class="opt"><input type="radio" name="aiuse" value="monthly"> About monthly</label>
+      <label class="opt"><input type="radio" name="aiuse" value="weekly"> About weekly</label>
+      <label class="opt"><input type="radio" name="aiuse" value="daily"> Daily</label>
+    </div>
+    <h2>Anything you want to tell us? (optional)</h2>
+    <textarea id="comment" maxlength="2000"></textarea>
+    <p><button class="primary" id="b-submit" disabled>Submit my answers</button></p>
+    <p class="muted" id="submit-status"></p>
+  </section>
+
+  <section id="s-done" class="hidden">
+    <h1>Thank you</h1>
+    <p id="done-saved">Your answers have been recorded.</p>
+    <div id="fallback" class="hidden">
+      <p class="note" id="fallback-note">Your answers could not be sent automatically. Before you finish, please
+        download them, or copy the line below, and send it as the study instructions describe.</p>
+      <p><button id="b-download">Download my answers</button></p>
+      <div class="answers" id="answer-line"></div>
+    </div>
+    <p id="done-code" class="hidden">Your completion code: <span class="code" id="code"></span></p>
+    <p id="done-return" class="hidden"><button class="primary" id="b-return">Finish and return</button></p>
+  </section>
+</main>
+
+<script>
+const CONFIG = /*CONFIG_JSON*/{};
+const ITEMS = /*ITEMS_JSON*/[];
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const params = new URLSearchParams(window.location.search);
+  const pick = (...names) => { for (const n of names) { const v = params.get(n); if (v) return v; } return ""; };
+  const raterId = pick("PROLIFIC_PID", "workerId", "participant", "pid", "rater") ||
+    ("anon-" + Math.random().toString(36).slice(2, 10));
+  const studyId = pick("STUDY_ID", "study");
+  const sessionId = pick("SESSION_ID", "assignmentId", "session");
+  const storeKey = "labelapp:" + CONFIG.itemSetHash + ":" + raterId;
+  const byId = Object.fromEntries(ITEMS.map((x) => [x.id, x]));
+
+  // A seeded order (FNV-1a hash of the rater id, mulberry32), so each rater's order can be rebuilt later.
+  function fnv1a(s) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return h >>> 0; }
+  function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  function shuffled(arr, rnd) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  function buildOrder() {
+    const rnd = mulberry32(fnv1a(raterId + "|" + CONFIG.salt));
+    const order = shuffled(ITEMS.filter((x) => !x.check).map((x) => x.id), rnd);
+    const checks = ITEMS.filter((x) => x.check).map((x) => x.id);
+    const n = order.length, seg = n / (checks.length + 1);
+    // check i goes somewhere in the middle half of the i-th gap between equal slices
+    const slots = checks.map((_, i) => Math.round(seg * (i + 1) + (rnd() - 0.5) * seg * 0.5));
+    slots.forEach((p, i) => order.splice(p + i, 0, checks[i]));
+    return order;
+  }
+
+  let S = null;
+  try { S = JSON.parse(localStorage.getItem(storeKey) || "null"); } catch (e) { S = null; }
+  if (!S || S.itemSetHash !== CONFIG.itemSetHash) {
+    S = { itemSetHash: CONFIG.itemSetHash, order: buildOrder(), idx: 0, resp: {}, phase: "consent",
+          startedAt: null, consentAt: null, submitted: false };
+  }
+  const save = () => { try { localStorage.setItem(storeKey, JSON.stringify(S)); } catch (e) { /* private mode */ } };
+  const show = (name) => { ["consent", "instr", "task", "end", "done"].forEach((p) => $("s-" + p).classList.toggle("hidden", p !== name)); S.phase = name; save(); window.scrollTo(0, 0); };
+
+  // ---- consent and instructions
+  $("consent-text").innerHTML = CONFIG.consentHtml;
+  $("agree").addEventListener("change", () => { $("b-consent").disabled = !$("agree").checked; });
+  $("b-consent").addEventListener("click", () => { S.consentAt = new Date().toISOString(); show("instr"); });
+  $("n-real").textContent = CONFIG.nReal; $("n-pre").textContent = CONFIG.nPre; $("n-post").textContent = CONFIG.nPost;
+  $("est-min").textContent = CONFIG.estMinutes;
+  $("b-start").addEventListener("click", () => { if (!S.startedAt) S.startedAt = new Date().toISOString(); show("task"); render(); });
+
+  // ---- the labelling loop
+  let shownAt = 0, lock = false;
+  function render() {
+    const id = S.order[S.idx], it = byId[id];
+    $("prog").textContent = "Listing " + (S.idx + 1) + " of " + S.order.length;
+    $("barfill").style.width = (100 * S.idx / S.order.length) + "%";
+    $("ltitle").textContent = it.title || "";
+    $("ldesc").textContent = it.description || "";
+    document.querySelectorAll("#s-task .choices button").forEach((b) => b.classList.toggle("chosen", !!S.resp[id] && S.resp[id].label === b.dataset.label));
+    $("b-back").disabled = S.idx === 0;
+    shownAt = performance.now();
+  }
+  function answer(label) {
+    if (lock || S.phase !== "task") return;
+    lock = true; setTimeout(() => { lock = false; }, 250);
+    const id = S.order[S.idx], prev = S.resp[id];
+    S.resp[id] = { label: label, rt_ms: Math.round(performance.now() - shownAt), at: new Date().toISOString(),
+                   revisions: prev ? prev.revisions + 1 : 0 };
+    S.idx += 1;
+    if (S.idx >= S.order.length) { S.idx = S.order.length - 1; show("end"); } else { save(); render(); }
+  }
+  document.querySelectorAll("#s-task .choices button").forEach((b) => b.addEventListener("click", () => answer(b.dataset.label)));
+  $("b-back").addEventListener("click", () => { if (S.idx > 0) { S.idx -= 1; save(); render(); } });
+  document.addEventListener("keydown", (e) => {
+    if (S.phase !== "task" || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = { "1": "A", "2": "U", "3": "H" }[e.key];
+    if (k) { e.preventDefault(); answer(k); }
+    else if (e.key === "Backspace") { e.preventDefault(); $("b-back").click(); }
+  });
+
+  // ---- background question and submission
+  document.querySelectorAll("input[name=aiuse]").forEach((r) => r.addEventListener("change", () => { $("b-submit").disabled = false; }));
+  function payload() {
+    const checks = ITEMS.filter((x) => x.check).map((x) => ({ id: x.id, expected: x.expected, label: (S.resp[x.id] || {}).label || null }));
+    checks.forEach((c) => { c.pass = c.label === c.expected; });
+    const sel = document.querySelector("input[name=aiuse]:checked");
+    return { app_version: CONFIG.appVersion, item_set_hash: CONFIG.itemSetHash, rater_id: raterId, study_id: studyId,
+             session_id: sessionId, consent_at: S.consentAt, started_at: S.startedAt, finished_at: new Date().toISOString(),
+             order: S.order, responses: S.order.map((id) => Object.assign({ id: id }, S.resp[id] || {})),
+             attention: checks, attention_passed: checks.filter((c) => c.pass).length,
+             ai_use: sel ? sel.value : null, comment: $("comment").value.slice(0, 2000) };
+  }
+  function answerLine(p) {
+    // fixed item order, so the line can be read without the rater's order: version|hash|rater|labels
+    const lab = ITEMS.map((x) => ((S.resp[x.id] || {}).label || "-")).join("");
+    return [p.app_version, p.item_set_hash, p.rater_id, lab].join("|");
+  }
+  function finish(ok, p) {
+    S.submitted = ok; save(); show("done");
+    if (CONFIG.completionCode) { $("code").textContent = CONFIG.completionCode; $("done-code").classList.remove("hidden"); }
+    if (CONFIG.completionUrl) { $("done-return").classList.remove("hidden"); }
+    if (!ok) {
+      $("done-saved").textContent = "Your answers are saved in this browser.";
+      if (!CONFIG.submitUrl) {
+        // a build with no collector (a pilot with a volunteer): sending by file is the plan, not a failure
+        $("fallback-note").textContent = "Please download your answers, or copy the line below, and send the file to "
+          + "the person who gave you this link.";
+      }
+      $("fallback").classList.remove("hidden");
+      $("answer-line").textContent = answerLine(p);
+      $("b-download").onclick = () => {
+        const blob = new Blob([JSON.stringify(p, null, 1)], { type: "application/json" });
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+        a.download = "answers_" + p.rater_id.replace(/[^A-Za-z0-9_-]/g, "") + ".json"; a.click();
+      };
+    }
+  }
+  $("b-submit").addEventListener("click", () => {
+    $("b-submit").disabled = true; $("submit-status").textContent = "Sending...";
+    const p = payload(); S.lastPayload = p; save();
+    if (!CONFIG.submitUrl) { finish(false, p); return; }
+    // text/plain avoids a CORS preflight; the response of a no-cors request cannot be read, so success means sent
+    fetch(CONFIG.submitUrl, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
+                              body: JSON.stringify(p) })
+      .then(() => finish(true, p)).catch(() => finish(false, p));
+  });
+  $("b-return").addEventListener("click", () => { window.location.href = CONFIG.completionUrl; });
+
+  // ---- resume where the rater left off
+  if (S.phase === "done") { finish(S.submitted, S.lastPayload || payload()); }
+  else if (S.phase === "task") { show("task"); render(); }
+  else { show(S.phase || "consent"); }
+})();
+</script>
+</body>
+</html>

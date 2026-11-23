@@ -1,0 +1,238 @@
+{
+ "ai_scope": "tool",
+ "parts_dropped": {
+  "n": 55,
+  "tool_era": 2,
+  "tool_era_ai": 0,
+  "n_before": 4331
+ },
+ "veh_pooled": {
+  "b": -0.0032863910794053153,
+  "se": 0.14589345705226417,
+  "n": 2773,
+  "clusters": 574,
+  "within_r2": 0.34343934404422194,
+  "median_price": 4550.0,
+  "label": "V1 pooled 2019-26, agency+make x model+body+subcat x quarter",
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 632,
+   "n_ai_tool_era": 97,
+   "median_price": 4099.999999999999
+  }
+ },
+ "veh_from_dec2022": {
+  "b": 0.2071195432184446,
+  "se": 0.28132074045712624,
+  "n": 1002,
+  "clusters": 275,
+  "within_r2": 0.3308331948996739,
+  "median_price": 4550.0,
+  "label": "V2 pooled from Dec 2022 (ChatGPT era only)"
+ },
+ "veh_tool_era": {
+  "b": -0.01567725538493263,
+  "se": 0.42957026379843766,
+  "n": 300,
+  "clusters": 79,
+  "within_r2": 0.41726858601040384,
+  "median_price": 4550.0,
+  "label": "V3 tool era only"
+ },
+ "veh_nobody": {
+  "b": -0.015713524303715865,
+  "se": 0.13830595626530995,
+  "n": 2810,
+  "clusters": 581,
+  "within_r2": 0.34046857313927303,
+  "median_price": 4550.0,
+  "label": "V1b pooled, without body-style FE"
+ },
+ "veh_pooled_start": {
+  "b": -0.025263318904629014,
+  "se": 0.1440885417400022,
+  "n": 2773,
+  "clusters": 574,
+  "within_r2": 0.35944255564031957,
+  "median_price": 4550.0,
+  "label": "V1c pooled, + log opening bid (seller's own price signal)"
+ },
+ "veh_residual": {
+  "b": -0.10188206314005348,
+  "se": 0.16570204150411763,
+  "n": 447,
+  "clusters": 122,
+  "within_r2": 0.000979867997324524,
+  "median_price": 4550.0,
+  "label": "V4 tool era, hedonic residual, agency FE",
+  "n_ai": 97
+ },
+ "veh_residual_month": {
+  "b": -0.011742818015990508,
+  "se": 0.18844328788808307,
+  "n": 447,
+  "clusters": 122,
+  "within_r2": 1.2979396069368043e-05,
+  "median_price": 4550.0,
+  "label": "V4b tool era, hedonic residual, agency + end-month FE",
+  "n_ai": 97
+ },
+ "veh_residual_quarter": {
+  "b": -0.03720083780771879,
+  "se": 0.16882491379920472,
+  "n": 447,
+  "clusters": 122,
+  "within_r2": 0.00013147953196079865,
+  "median_price": 4550.0,
+  "label": "V4c tool era, hedonic residual, agency + end-quarter FE",
+  "n_ai": 97
+ },
+ "goods_pooled": {
+  "b": 0.2812383382765671,
+  "se": 0.2033561795158724,
+  "n": 6282,
+  "clusters": 868,
+  "within_r2": 0.11255563376738509,
+  "median_price": 300.49958402633433,
+  "label": "G1 other goods, pooled 2019-26, agency + subcat x quarter"
+ },
+ "goods_pooled_start": {
+  "b": 0.0077120495357513455,
+  "se": 0.16323035629598986,
+  "n": 6282,
+  "clusters": 868,
+  "within_r2": 0.37338449038526733,
+  "median_price": 300.49958402633433,
+  "label": "G1c other goods, pooled, + log opening bid"
+ },
+ "balance_goods_log_start": {
+  "b": 0.442264630737942,
+  "se": 0.20498114858438676,
+  "n": 6282
+ },
+ "all_pooled": {
+  "b": 0.184680269938196,
+  "se": 0.12534393594939872,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.1073905248710535,
+  "median_price": 975.0000000000001,
+  "label": "G2 all listings, pooled 2019-26, agency + subcat x quarter"
+ },
+ "all_pooled_start": {
+  "b": 0.08356180059605467,
+  "se": 0.12970217569565776,
+  "n": 10440,
+  "clusters": 1385,
+  "within_r2": 0.32317471983867296,
+  "median_price": 975.0000000000001,
+  "label": "G2c all listings, pooled, + log opening bid",
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1717,
+   "n_ai_tool_era": 224,
+   "median_price": 874.9999999999997
+  }
+ },
+ "balance_veh_log_start": {
+  "b": 0.2561608023905059,
+  "se": 0.3359734738670919,
+  "n": 2773
+ },
+ "veh_tx_subset": {
+  "b": -0.0766363617447231,
+  "se": 0.30340702192733643,
+  "n": 1379,
+  "clusters": 313,
+  "within_r2": 0.33499819508841855,
+  "median_price": 4550.0,
+  "label": "T0 V1 on the Texas-benchmark subset (no Texas control)"
+ },
+ "veh_tx_control": {
+  "b": -0.11557616617886494,
+  "se": 0.29335512934691493,
+  "n": 1379,
+  "clusters": 313,
+  "within_r2": 0.3503392464179873,
+  "median_price": 4550.0,
+  "label": "T1 T0 + log Texas median of the same make, model and year",
+  "log_tx": {
+   "b": 0.45909875361103686,
+   "se": 0.11851956719436851
+  }
+ },
+ "veh_tx_relative": {
+  "b": -0.050234566723979135,
+  "se": 0.2790298469237707,
+  "n": 1468,
+  "clusters": 332,
+  "within_r2": 0.4186948345672873,
+  "median_price": 4550.0,
+  "label": "T2 log price relative to the Texas median, hedonics, agency + subcat x quarter"
+ },
+ "veh_tx": {
+  "n": 1989,
+  "tool_era": 213,
+  "tool_era_ai": 32,
+  "corr_log": 0.6265307632925011,
+  "median_ratio": 0.7459903021260731,
+  "benchmark": "results/dmv_s9/benchmark.parquet"
+ },
+ "pooled_sold": {
+  "b": 0.03045694946788475,
+  "se": 0.030567941390825647,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 0.8799372004627334,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1992,
+   "n_ai_tool_era": 284,
+   "mean": 0.8619477911646586
+  }
+ },
+ "pooled_log_bids": {
+  "b": 0.1848579360687834,
+  "se": 0.10764330206449457,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 2.4685813683441964,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1992,
+   "n_ai_tool_era": 284,
+   "mean": 2.386828336367097
+  }
+ },
+ "pooled_log_views": {
+  "b": 0.06393526693499998,
+  "se": 0.051751926917390445,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 7.021615408496344,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1992,
+   "n_ai_tool_era": 284,
+   "mean": 6.777620787165617
+  }
+ },
+ "pooled_n_q_before_end": {
+  "b": 0.293445648066079,
+  "se": 0.20780545172586304,
+  "n": 12102,
+  "clusters": 1507,
+  "mean": 1.2054205916377458,
+  "ref": {
+   "group": "tool-era listings not flagged",
+   "n": 1992,
+   "n_ai_tool_era": 284,
+   "mean": 1.4347389558232932
+  }
+ },
+ "n_vehicles_priced": 4276,
+ "n_ai_vehicles_tool_era": 97,
+ "vehicle_median_price_tool_era": 4550.0,
+ "hedonic_out_of_time_r2": 0.6094405669835812,
+ "ai_rule": "c1"
+}

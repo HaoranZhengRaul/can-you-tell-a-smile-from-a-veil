@@ -1,0 +1,17 @@
+{
+ "pattern": "(?i)(\\bA\\.?I\\b|\\bchat ?gpt\\b|\\bchatbot\\b|artificial intelligence|\\bgenerated\\b)",
+ "questions": {
+  "P0|0": 8937,
+  "P0|1": 110,
+  "P1|0": 4883,
+  "P1|1": 61,
+  "P2|0": 2573,
+  "P2|1": 764
+ },
+ "matches": {
+  "P2|1": 4
+ },
+ "listings_matched": {
+  "P2|1": 3
+ }
+}

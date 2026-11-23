@@ -1,0 +1,302 @@
+{
+ "source": "code/frozen_rewrites.py --reference (Session 12, buyers first); the pricing model's design (job 817664) for each outcome; pair-bootstrap intervals hold each fitted model fixed",
+ "n_pairs": 600,
+ "outcomes": {
+  "sold": {
+   "label": "received a bid",
+   "units": "pp",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 0.878951865565366,
+   "groups": {
+    "all": {
+     "est": 5.259979715471763e-06,
+     "lo": -0.004776334882823486,
+     "hi": 0.004614354069433716,
+     "n": 600,
+     "est_units": 0.0005259979715471763,
+     "lo_units": -0.47763348828234864,
+     "hi_units": 0.4614354069433716,
+     "share_positive": 0.5216666666666666
+    },
+    "appealing": {
+     "est": -0.002469758804528324,
+     "lo": -0.008208959259352154,
+     "hi": 0.0033982173799572625,
+     "n": 400,
+     "est_units": -0.2469758804528324,
+     "lo_units": -0.8208959259352154,
+     "hi_units": 0.33982173799572624,
+     "share_positive": 0.51
+    },
+    "concise": {
+     "est": 0.004955297548203066,
+     "lo": -0.001961726656581696,
+     "hi": 0.01214791935815438,
+     "n": 200,
+     "est_units": 0.49552975482030664,
+     "lo_units": -0.19617266565816963,
+     "hi_units": 1.214791935815438,
+     "share_positive": 0.545
+    }
+   },
+   "oos": {
+    "est": 0.34334487788210855,
+    "lo": 0.2427285369773725,
+    "hi": 0.43891381236193133,
+    "n": 507
+   },
+   "top_words": [
+    "green",
+    "heavy",
+    "in working",
+    "feet",
+    "and",
+    "quantity of",
+    "metal desk",
+    "35",
+    "pickup",
+    "three",
+    "hp laserjet",
+    "hose"
+   ],
+   "bottom_words": [
+    "office desk",
+    "female",
+    "pallet condition",
+    "condition 10",
+    "used in",
+    "wooden",
+    "131",
+    "useable",
+    "compatible",
+    "size is",
+    "conference",
+    "cooper"
+   ]
+  },
+  "log_bids": {
+   "label": "bids, log of one plus the count",
+   "units": "pct",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 2.438838945102473,
+   "groups": {
+    "all": {
+     "est": -0.004985452369871732,
+     "lo": -0.02377582709396943,
+     "hi": 0.01280549924919583,
+     "n": 600,
+     "est_units": -0.4973045628507866,
+     "lo_units": -2.349540890470203,
+     "hi_units": 1.2887840754011837,
+     "share_positive": 0.515
+    },
+    "appealing": {
+     "est": -0.027036635075483685,
+     "lo": -0.050150840593862295,
+     "hi": -0.005134541215876241,
+     "n": 400,
+     "est_units": -2.667441698503925,
+     "lo_units": -4.891404868951432,
+     "hi_units": -0.5121381990955132,
+     "share_positive": 0.49
+    },
+    "concise": {
+     "est": 0.03911691304135216,
+     "lo": 0.012106668181914776,
+     "hi": 0.06709313872514214,
+     "n": 200,
+     "est_units": 3.989205348612068,
+     "lo_units": 1.2180250535032577,
+     "hi_units": 6.939507563035563,
+     "share_positive": 0.565
+    }
+   },
+   "oos": {
+    "est": 0.3253237847597369,
+    "lo": 0.2369042655865867,
+    "hi": 0.4057005727963565,
+    "n": 507
+   },
+   "top_words": [
+    "fuel",
+    "feet",
+    "camera",
+    "in the",
+    "diesel",
+    "hobart",
+    "but needs",
+    "leaf",
+    "attachments",
+    "bikes",
+    "quantity of",
+    "replaced"
+   ],
+   "bottom_words": [
+    "no engine",
+    "toro",
+    "mounted",
+    "131",
+    "engine no",
+    "runs needs",
+    "brand",
+    "brand new",
+    "ceiling",
+    "boy",
+    "operable",
+    "wrecked"
+   ]
+  },
+  "log_views": {
+   "label": "page views, log of one plus the count",
+   "units": "pct",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 7.096868379113386,
+   "groups": {
+    "all": {
+     "est": 0.04457129300308173,
+     "lo": 0.03732722090675893,
+     "hi": 0.05223351004516078,
+     "n": 600,
+     "est_units": 4.55795165570354,
+     "lo_units": 3.8032631250156435,
+     "hi_units": 5.362174505148443,
+     "share_positive": 0.67
+    },
+    "appealing": {
+     "est": 0.05720474507780526,
+     "lo": 0.04715267818068524,
+     "hi": 0.06744441733080488,
+     "n": 400,
+     "est_units": 5.887258715299826,
+     "lo_units": 4.828204665795033,
+     "hi_units": 6.977079722904178,
+     "share_positive": 0.7225
+    },
+    "concise": {
+     "est": 0.019304388853634658,
+     "lo": 0.008418157518469234,
+     "hi": 0.030299818446785448,
+     "n": 200,
+     "est_units": 1.949192337076866,
+     "lo_units": 0.8453689842053747,
+     "hi_units": 3.0763529550345003,
+     "share_positive": 0.565
+    }
+   },
+   "oos": {
+    "est": 0.43122903440653926,
+    "lo": 0.34372594419794045,
+    "hi": 0.5151526954768767,
+    "n": 507
+   },
+   "top_words": [
+    "vehicle",
+    "included",
+    "of vehicle",
+    "blown",
+    "it does",
+    "desks",
+    "mouse",
+    "diesel",
+    "great shape",
+    "spreader and",
+    "drive",
+    "in great"
+   ],
+   "bottom_words": [
+    "totaled",
+    "run no",
+    "runs needs",
+    "wrecked",
+    "chevy impala",
+    "no engine",
+    "no key",
+    "engine parts",
+    "impala",
+    "gmc",
+    "key possibly",
+    "lawn"
+   ]
+  },
+  "n_q_before_end": {
+   "label": "buyer questions before the close, per listing",
+   "units": "count",
+   "n_train": 7022,
+   "alpha": 5.878016072274912,
+   "train_mean": 1.191683281116491,
+   "groups": {
+    "all": {
+     "est": 0.03236704609713875,
+     "lo": 0.01780086240180727,
+     "hi": 0.04677040408462124,
+     "n": 600,
+     "est_units": 0.03236704609713875,
+     "lo_units": 0.01780086240180727,
+     "hi_units": 0.04677040408462124,
+     "share_positive": 0.57
+    },
+    "appealing": {
+     "est": 0.02131401181158549,
+     "lo": 0.0035604441689820452,
+     "hi": 0.039488492231979,
+     "n": 400,
+     "est_units": 0.02131401181158549,
+     "lo_units": 0.0035604441689820452,
+     "hi_units": 0.039488492231979,
+     "share_positive": 0.535
+    },
+    "concise": {
+     "est": 0.0544731146682453,
+     "lo": 0.030534369265865145,
+     "hi": 0.07979523669338581,
+     "n": 200,
+     "est_units": 0.0544731146682453,
+     "lo_units": 0.030534369265865145,
+     "hi_units": 0.07979523669338581,
+     "share_positive": 0.64
+    }
+   },
+   "oos": {
+    "est": 0.254797225856049,
+    "lo": 0.15136626412537374,
+    "hi": 0.35483380533500736,
+    "n": 507
+   },
+   "top_words": [
+    "vehicle",
+    "miles",
+    "vehicle is",
+    "truck with",
+    "current",
+    "inspected",
+    "drive",
+    "diesel",
+    "engine",
+    "plow",
+    "spreader and",
+    "explorer"
+   ],
+   "bottom_words": [
+    "rust",
+    "no key",
+    "key",
+    "eaton",
+    "on",
+    "run no",
+    "year",
+    "2008",
+    "transmission",
+    "work",
+    "bad",
+    "service"
+   ]
+  }
+ },
+ "reproduce_log_price": {
+  "n_train": 6170,
+  "mean_delta": 0.17235032499133918
+ }
+}

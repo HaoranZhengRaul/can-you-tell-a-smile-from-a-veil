@@ -1,0 +1,790 @@
+{
+ "source": "code/frozen_rewrites.py --reference (Session 12, buyers first); the pricing model's design (job 817664) for each outcome; pair-bootstrap intervals hold each fitted model fixed",
+ "n_pairs": 600,
+ "outcomes": {
+  "sold": {
+   "label": "received a bid",
+   "units": "pp",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 0.878951865565366,
+   "groups": {
+    "all": {
+     "est": 5.259979715471763e-06,
+     "lo": -0.004745917799983308,
+     "hi": 0.0046744301790948555,
+     "n": 600,
+     "est_units": 0.0005259979715471763,
+     "lo_units": -0.47459177999833074,
+     "hi_units": 0.46744301790948556,
+     "share_positive": 0.5216666666666666
+    },
+    "appealing": {
+     "est": -0.002469758804528324,
+     "lo": -0.008341607970880158,
+     "hi": 0.003200959579028115,
+     "n": 400,
+     "est_units": -0.2469758804528324,
+     "lo_units": -0.8341607970880158,
+     "hi_units": 0.32009595790281153,
+     "share_positive": 0.51
+    },
+    "concise": {
+     "est": 0.004955297548203066,
+     "lo": -0.0019280004627557148,
+     "hi": 0.011775940530971609,
+     "n": 200,
+     "est_units": 0.49552975482030664,
+     "lo_units": -0.19280004627557148,
+     "hi_units": 1.177594053097161,
+     "share_positive": 0.545
+    }
+   },
+   "oos": {
+    "est": 0.34334487788210855,
+    "lo": 0.24232794708495076,
+    "hi": 0.4347653807527911,
+    "n": 507
+   },
+   "top_words": [
+    "green",
+    "heavy",
+    "in working",
+    "feet",
+    "and",
+    "quantity of",
+    "metal desk",
+    "35",
+    "pickup",
+    "three",
+    "hp laserjet",
+    "hose"
+   ],
+   "bottom_words": [
+    "office desk",
+    "female",
+    "pallet condition",
+    "condition 10",
+    "used in",
+    "wooden",
+    "131",
+    "useable",
+    "compatible",
+    "size is",
+    "conference",
+    "cooper"
+   ],
+   "planted_top": {
+    "est": 0.268929269374986,
+    "lo": 0.2595366855283973,
+    "hi": 0.2784178938212801,
+    "n": 600,
+    "words": [
+     "green",
+     "heavy",
+     "feet",
+     "and",
+     "35",
+     "pickup",
+     "three",
+     "hose",
+     "camera",
+     "purple"
+    ],
+    "est_units": 26.8929269374986,
+    "lo_units": 25.95366855283973,
+    "hi_units": 27.841789382128013
+   },
+   "planted_bottom": {
+    "est": -0.4390044877020632,
+    "lo": -0.45238389383459193,
+    "hi": -0.4252022416987937,
+    "n": 600,
+    "words": [
+     "female",
+     "wooden",
+     "131",
+     "useable",
+     "compatible",
+     "conference",
+     "cooper",
+     "gallons",
+     "guards",
+     "below"
+    ],
+    "est_units": -43.90044877020632,
+    "lo_units": -45.23838938345919,
+    "hi_units": -42.52022416987937
+   },
+   "scale": {
+    "sd_score_originals": 0.07877283748815474,
+    "sd_change_pairs": 0.057378910932157905,
+    "mean_abs_change": 0.04268522354581013,
+    "sd_score_originals_units": 7.877283748815474,
+    "sd_change_pairs_units": 5.73789109321579
+   },
+   "promo_planted": {
+    "est": -0.0009317249904167317,
+    "lo": -0.00237772480978638,
+    "hi": 0.000605672675872088,
+    "n": 600,
+    "est_units": -0.09317249904167317,
+    "lo_units": -0.237772480978638,
+    "hi_units": 0.0605672675872088,
+    "words_in_vocabulary": 10
+   },
+   "slope_rewrite_on_original": 0.6452117818595636
+  },
+  "log_bids": {
+   "label": "bids, log of one plus the count",
+   "units": "pct",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 2.438838945102473,
+   "groups": {
+    "all": {
+     "est": -0.004985452369871732,
+     "lo": -0.021786487114200143,
+     "hi": 0.012328365748412604,
+     "n": 600,
+     "est_units": -0.4973045628507866,
+     "lo_units": -2.155087575372483,
+     "hi_units": 1.2404673309505565,
+     "share_positive": 0.515
+    },
+    "appealing": {
+     "est": -0.027036635075483685,
+     "lo": -0.04937437795296307,
+     "hi": -0.004722743191675931,
+     "n": 400,
+     "est_units": -2.667441698503925,
+     "lo_units": -4.817527920370135,
+     "hi_units": -0.47116085755892767,
+     "share_positive": 0.49
+    },
+    "concise": {
+     "est": 0.03911691304135216,
+     "lo": 0.012006619819085781,
+     "hi": 0.06691874075236821,
+     "n": 200,
+     "est_units": 3.989205348612068,
+     "lo_units": 1.2078988623707376,
+     "hi_units": 6.920859155876591,
+     "share_positive": 0.565
+    }
+   },
+   "oos": {
+    "est": 0.3253237847597369,
+    "lo": 0.2374655295763646,
+    "hi": 0.4081988850470739,
+    "n": 507
+   },
+   "top_words": [
+    "fuel",
+    "feet",
+    "camera",
+    "in the",
+    "diesel",
+    "hobart",
+    "but needs",
+    "leaf",
+    "attachments",
+    "bikes",
+    "quantity of",
+    "replaced"
+   ],
+   "bottom_words": [
+    "no engine",
+    "toro",
+    "mounted",
+    "131",
+    "engine no",
+    "runs needs",
+    "brand",
+    "brand new",
+    "ceiling",
+    "boy",
+    "operable",
+    "wrecked"
+   ],
+   "planted_top": {
+    "est": 1.1634695440636083,
+    "lo": 1.1217525883058166,
+    "hi": 1.202312449512029,
+    "n": 600,
+    "words": [
+     "fuel",
+     "feet",
+     "camera",
+     "diesel",
+     "hobart",
+     "leaf",
+     "attachments",
+     "bikes",
+     "replaced",
+     "came"
+    ],
+    "est_units": 220.10201121890822,
+    "lo_units": 207.02303406303434,
+    "hi_units": 232.78034093753064
+   },
+   "planted_bottom": {
+    "est": -1.30833488112826,
+    "lo": -1.3554705854588414,
+    "hi": -1.2626399567098852,
+    "n": 600,
+    "words": [
+     "toro",
+     "mounted",
+     "131",
+     "brand",
+     "ceiling",
+     "boy",
+     "operable",
+     "wrecked",
+     "tread",
+     "100"
+    ],
+    "est_units": -72.97302868853936,
+    "lo_units": -74.21740632372693,
+    "hi_units": -71.70938202748832
+   },
+   "scale": {
+    "sd_score_originals": 0.3370577160358006,
+    "sd_change_pairs": 0.21819564376007147,
+    "mean_abs_change": 0.16716295771673487,
+    "sd_score_originals_units": 33.70577160358006,
+    "sd_change_pairs_units": 21.819564376007147
+   },
+   "promo_planted": {
+    "est": 0.041587335313843045,
+    "lo": 0.03556282390461214,
+    "hi": 0.04763599333714353,
+    "n": 600,
+    "est_units": 4.246420181414923,
+    "lo_units": 3.6202744385614993,
+    "hi_units": 4.878881971502791,
+    "words_in_vocabulary": 10
+   },
+   "slope_rewrite_on_original": 0.7015878248316473
+  },
+  "log_views": {
+   "label": "page views, log of one plus the count",
+   "units": "pct",
+   "n_train": 7022,
+   "alpha": 2.0309176209047366,
+   "train_mean": 7.096868379113386,
+   "groups": {
+    "all": {
+     "est": 0.04457129300308173,
+     "lo": 0.03698719257232358,
+     "hi": 0.05264047808174698,
+     "n": 600,
+     "est_units": 4.55795165570354,
+     "lo_units": 3.767973074494857,
+     "hi_units": 5.405062268819805,
+     "share_positive": 0.67
+    },
+    "appealing": {
+     "est": 0.05720474507780526,
+     "lo": 0.04693713397830925,
+     "hi": 0.06680186402179851,
+     "n": 400,
+     "est_units": 5.887258715299826,
+     "lo_units": 4.805611988981551,
+     "hi_units": 6.908363325678879,
+     "share_positive": 0.7225
+    },
+    "concise": {
+     "est": 0.019304388853634658,
+     "lo": 0.008037808665970085,
+     "hi": 0.030384066416980115,
+     "n": 200,
+     "est_units": 1.949192337076866,
+     "lo_units": 0.8070198573179033,
+     "hi_units": 3.0850372943598936,
+     "share_positive": 0.565
+    }
+   },
+   "oos": {
+    "est": 0.43122903440653926,
+    "lo": 0.3450804751526695,
+    "hi": 0.5110274712954661,
+    "n": 507
+   },
+   "top_words": [
+    "vehicle",
+    "included",
+    "of vehicle",
+    "blown",
+    "it does",
+    "desks",
+    "mouse",
+    "diesel",
+    "great shape",
+    "spreader and",
+    "drive",
+    "in great"
+   ],
+   "bottom_words": [
+    "totaled",
+    "run no",
+    "runs needs",
+    "wrecked",
+    "chevy impala",
+    "no engine",
+    "no key",
+    "engine parts",
+    "impala",
+    "gmc",
+    "key possibly",
+    "lawn"
+   ],
+   "planted_top": {
+    "est": 0.47834717916312874,
+    "lo": 0.460955064727908,
+    "hi": 0.4951416359262604,
+    "n": 600,
+    "words": [
+     "vehicle",
+     "included",
+     "blown",
+     "desks",
+     "mouse",
+     "diesel",
+     "drive",
+     "chipper",
+     "feet",
+     "sept"
+    ],
+    "est_units": 61.34055269409016,
+    "lo_units": 58.558760086946,
+    "hi_units": 64.07306090002389
+   },
+   "planted_bottom": {
+    "est": -0.6322715825635583,
+    "lo": -0.6529030803112856,
+    "hi": -0.6124457210169777,
+    "n": 600,
+    "words": [
+     "totaled",
+     "wrecked",
+     "impala",
+     "gmc",
+     "lawn",
+     "6l",
+     "nozzle",
+     "arm",
+     "f150",
+     "key"
+    ],
+    "est_units": -46.8616652171536,
+    "lo_units": -47.94675663139907,
+    "hi_units": -45.797639184903105
+   },
+   "scale": {
+    "sd_score_originals": 0.17613801453844263,
+    "sd_change_pairs": 0.0956821692176916,
+    "mean_abs_change": 0.07840437547650789,
+    "sd_score_originals_units": 17.613801453844264,
+    "sd_change_pairs_units": 9.56821692176916
+   },
+   "promo_planted": {
+    "est": 0.003787459343232055,
+    "lo": 0.0010413602027468463,
+    "hi": 0.006543122256548997,
+    "n": 600,
+    "est_units": 0.37946408310389756,
+    "lo_units": 0.1041902606545575,
+    "hi_units": 0.6564575245300075,
+    "words_in_vocabulary": 10
+   },
+   "slope_rewrite_on_original": 0.7044111863226509
+  },
+  "n_q_before_end": {
+   "label": "buyer questions before the close, per listing",
+   "units": "count",
+   "n_train": 7022,
+   "alpha": 5.878016072274912,
+   "train_mean": 1.191683281116491,
+   "groups": {
+    "all": {
+     "est": 0.03236704609713875,
+     "lo": 0.017310779870321882,
+     "hi": 0.046641219315544734,
+     "n": 600,
+     "est_units": 0.03236704609713875,
+     "lo_units": 0.017310779870321882,
+     "hi_units": 0.046641219315544734,
+     "share_positive": 0.57
+    },
+    "appealing": {
+     "est": 0.02131401181158549,
+     "lo": 0.00352205855699282,
+     "hi": 0.039078292127092615,
+     "n": 400,
+     "est_units": 0.02131401181158549,
+     "lo_units": 0.00352205855699282,
+     "hi_units": 0.039078292127092615,
+     "share_positive": 0.535
+    },
+    "concise": {
+     "est": 0.0544731146682453,
+     "lo": 0.032198934537935216,
+     "hi": 0.07924574176226362,
+     "n": 200,
+     "est_units": 0.0544731146682453,
+     "lo_units": 0.032198934537935216,
+     "hi_units": 0.07924574176226362,
+     "share_positive": 0.64
+    }
+   },
+   "oos": {
+    "est": 0.254797225856049,
+    "lo": 0.15184168882825577,
+    "hi": 0.3564989959914678,
+    "n": 507
+   },
+   "top_words": [
+    "vehicle",
+    "miles",
+    "vehicle is",
+    "truck with",
+    "current",
+    "inspected",
+    "drive",
+    "diesel",
+    "engine",
+    "plow",
+    "spreader and",
+    "explorer"
+   ],
+   "bottom_words": [
+    "rust",
+    "no key",
+    "key",
+    "eaton",
+    "on",
+    "run no",
+    "year",
+    "2008",
+    "transmission",
+    "work",
+    "bad",
+    "service"
+   ],
+   "planted_top": {
+    "est": 0.8534991365707147,
+    "lo": 0.8194693065998883,
+    "hi": 0.8863423114677665,
+    "n": 600,
+    "words": [
+     "vehicle",
+     "miles",
+     "current",
+     "inspected",
+     "drive",
+     "diesel",
+     "engine",
+     "plow",
+     "explorer",
+     "ford"
+    ],
+    "est_units": 0.8534991365707147,
+    "lo_units": 0.8194693065998883,
+    "hi_units": 0.8863423114677665
+   },
+   "planted_bottom": {
+    "est": -0.6969205683632597,
+    "lo": -0.7221583312931265,
+    "hi": -0.6726804622800283,
+    "n": 600,
+    "words": [
+     "rust",
+     "key",
+     "eaton",
+     "on",
+     "year",
+     "2008",
+     "transmission",
+     "work",
+     "bad",
+     "service"
+    ],
+    "est_units": -0.6969205683632597,
+    "lo_units": -0.7221583312931265,
+    "hi_units": -0.6726804622800283
+   },
+   "scale": {
+    "sd_score_originals": 0.33221306765892666,
+    "sd_change_pairs": 0.1819868627153774,
+    "mean_abs_change": 0.13291603290207335,
+    "sd_score_originals_units": 0.33221306765892666,
+    "sd_change_pairs_units": 0.1819868627153774
+   },
+   "promo_planted": {
+    "est": 0.08935396300954129,
+    "lo": 0.08391530484959017,
+    "hi": 0.09493615498815092,
+    "n": 600,
+    "est_units": 0.08935396300954129,
+    "lo_units": 0.08391530484959017,
+    "hi_units": 0.09493615498815092,
+    "words_in_vocabulary": 10
+   },
+   "slope_rewrite_on_original": 0.7331345621147569
+  }
+ },
+ "reproduce_log_price": {
+  "n_train": 6170,
+  "mean_delta": 0.17235032499133918
+ },
+ "log_price_checks": {
+  "promo_planted": {
+   "est": 0.1635697155467132,
+   "lo": 0.1544823293245294,
+   "hi": 0.17362460411780486,
+   "n": 600,
+   "est_units": 17.77074568447301,
+   "lo_units": 16.705365524888684,
+   "hi_units": 18.960890770342466,
+   "words_in_vocabulary": 9
+  },
+  "slope_rewrite_on_original": 0.7975319303214502
+ },
+ "title_variant": {
+  "note": "the title prepended to the training text, the original and the rewrite",
+  "outcomes": {
+   "log_price": {
+    "label": "closing bid, log",
+    "units": "pct",
+    "n_train": 6170,
+    "alpha": 0.701703828670383,
+    "groups": {
+     "all": {
+      "est": 0.17899868867765686,
+      "lo": 0.14937334221583876,
+      "hi": 0.2062246037360169,
+      "n": 600,
+      "est_units": 19.601917580018725,
+      "lo_units": 16.110639833466855,
+      "hi_units": 22.90292175512496
+     },
+     "appealing": {
+      "est": 0.222308124174788,
+      "lo": 0.18659265810103773,
+      "hi": 0.25921800408484963,
+      "n": 400,
+      "est_units": 24.895615216583966,
+      "lo_units": 20.513628255192607,
+      "hi_units": 29.591628908021185
+     },
+     "concise": {
+      "est": 0.09237981768339455,
+      "lo": 0.05384716477947752,
+      "hi": 0.12975631481070904,
+      "n": 200,
+      "est_units": 9.678131991930993,
+      "lo_units": 5.532329925984736,
+      "hi_units": 13.855090152493709
+     }
+    },
+    "promo_planted": {
+     "est": 0.2251741359428964,
+     "lo": 0.213517986520741,
+     "hi": 0.23722377353746196,
+     "n": 600,
+     "est_units": 25.254080957725655,
+     "lo_units": 23.802576584394263,
+     "hi_units": 26.772476929340105,
+     "words_in_vocabulary": 10
+    },
+    "slope_rewrite_on_original": 0.836496417614022
+   },
+   "sold": {
+    "label": "received a bid",
+    "units": "pp",
+    "n_train": 7022,
+    "alpha": 2.0309176209047366,
+    "groups": {
+     "all": {
+      "est": -0.0022201563986276912,
+      "lo": -0.006318906793339347,
+      "hi": 0.0018743704979496268,
+      "n": 600,
+      "est_units": -0.22201563986276912,
+      "lo_units": -0.6318906793339347,
+      "hi_units": 0.18743704979496267
+     },
+     "appealing": {
+      "est": -0.005901428375127478,
+      "lo": -0.010885065741991374,
+      "hi": -0.0006455508570345184,
+      "n": 400,
+      "est_units": -0.5901428375127478,
+      "lo_units": -1.0885065741991373,
+      "hi_units": -0.06455508570345184
+     },
+     "concise": {
+      "est": 0.005142387554371881,
+      "lo": -0.0005733717674872392,
+      "hi": 0.011306913913447687,
+      "n": 200,
+      "est_units": 0.5142387554371881,
+      "lo_units": -0.05733717674872392,
+      "hi_units": 1.1306913913447687
+     }
+    },
+    "promo_planted": {
+     "est": 0.0022545374696933355,
+     "lo": 0.00115690662064824,
+     "hi": 0.0033305454504692815,
+     "n": 600,
+     "est_units": 0.22545374696933354,
+     "lo_units": 0.11569066206482399,
+     "hi_units": 0.33305454504692816,
+     "words_in_vocabulary": 10
+    },
+    "slope_rewrite_on_original": 0.722002487212436
+   },
+   "log_bids": {
+    "label": "bids, log of one plus the count",
+    "units": "pct",
+    "n_train": 7022,
+    "alpha": 2.0309176209047366,
+    "groups": {
+     "all": {
+      "est": -0.01466176233608459,
+      "lo": -0.029978404843804308,
+      "hi": 0.0015980760312728213,
+      "n": 600,
+      "est_units": -1.4554802078710516,
+      "lo_units": -2.9533509302329786,
+      "hi_units": 0.15993536352525428
+     },
+     "appealing": {
+      "est": -0.03921275978393213,
+      "lo": -0.05905358606169277,
+      "hi": -0.018475333955852966,
+      "n": 400,
+      "est_units": -3.8453890960598813,
+      "lo_units": -5.7343745432539395,
+      "hi_units": -1.830571119217761
+     },
+     "concise": {
+      "est": 0.034440232559610484,
+      "lo": 0.012419934257269252,
+      "hi": 0.05538733691138397,
+      "n": 200,
+      "est_units": 3.5040164826067643,
+      "lo_units": 1.2497381940330898,
+      "hi_units": 5.694993112050062
+     }
+    },
+    "promo_planted": {
+     "est": 0.03465441361025326,
+     "lo": 0.029777328374967563,
+     "hi": 0.040063781223803566,
+     "n": 600,
+     "est_units": 3.5261874558191852,
+     "lo_units": 3.022510651235799,
+     "hi_units": 4.0877160494391385,
+     "words_in_vocabulary": 10
+    },
+    "slope_rewrite_on_original": 0.774446745417608
+   },
+   "log_views": {
+    "label": "page views, log of one plus the count",
+    "units": "pct",
+    "n_train": 7022,
+    "alpha": 2.0309176209047366,
+    "groups": {
+     "all": {
+      "est": 0.04848294099241311,
+      "lo": 0.04176828308855883,
+      "hi": 0.0551078277319324,
+      "n": 600,
+      "est_units": 4.967746521174821,
+      "lo_units": 4.265285045894984,
+      "hi_units": 5.665454519599367
+     },
+     "appealing": {
+      "est": 0.06382787011520874,
+      "lo": 0.055395420434077476,
+      "hi": 0.07185283381575937,
+      "n": 400,
+      "est_units": 6.59089081922879,
+      "lo_units": 5.695847503378726,
+      "hi_units": 7.449720277426453
+     },
+     "concise": {
+      "est": 0.01779308274682185,
+      "lo": 0.00901686267088859,
+      "hi": 0.026405185092746423,
+      "n": 200,
+      "est_units": 1.7952322698124634,
+      "lo_units": 0.9057637037247046,
+      "hi_units": 2.675689078696064
+     }
+    },
+    "promo_planted": {
+     "est": -0.007115866070721901,
+     "lo": -0.009039740612150748,
+     "hi": -0.005023886482022089,
+     "n": 600,
+     "est_units": -0.7090608241705931,
+     "lo_units": -0.8999004995862148,
+     "hi_units": -0.5011287871156789,
+     "words_in_vocabulary": 10
+    },
+    "slope_rewrite_on_original": 0.7984421596322806
+   },
+   "n_q_before_end": {
+    "label": "buyer questions before the close, per listing",
+    "units": "count",
+    "n_train": 7022,
+    "alpha": 5.878016072274912,
+    "groups": {
+     "all": {
+      "est": 0.026389105333331983,
+      "lo": 0.014036301294029104,
+      "hi": 0.039316276551890905,
+      "n": 600,
+      "est_units": 0.026389105333331983,
+      "lo_units": 0.014036301294029104,
+      "hi_units": 0.039316276551890905
+     },
+     "appealing": {
+      "est": 0.01524405756224572,
+      "lo": -0.0005895936981492003,
+      "hi": 0.031389199718662386,
+      "n": 400,
+      "est_units": 0.01524405756224572,
+      "lo_units": -0.0005895936981492003,
+      "hi_units": 0.031389199718662386
+     },
+     "concise": {
+      "est": 0.0486792008755045,
+      "lo": 0.029159553362465507,
+      "hi": 0.06992396570777218,
+      "n": 200,
+      "est_units": 0.0486792008755045,
+      "lo_units": 0.029159553362465507,
+      "hi_units": 0.06992396570777218
+     }
+    },
+    "promo_planted": {
+     "est": 0.053519881220162185,
+     "lo": 0.04932911158259326,
+     "hi": 0.05790057804308256,
+     "n": 600,
+     "est_units": 0.053519881220162185,
+     "lo_units": 0.04932911158259326,
+     "hi_units": 0.05790057804308256,
+     "words_in_vocabulary": 10
+    },
+    "slope_rewrite_on_original": 0.7847470259555346
+   }
+  }
+ }
+}

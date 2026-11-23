@@ -1,0 +1,443 @@
+{
+ "_about": "Numbers the paper uses that are not in report_data.json or hedonic_<rule>.json. Each value is copied from a logged job as recorded in ai_cheap_talk.md (v1.2) and scratchpad/machine_records_s8/WORKLOG.md; 'source' names both. Values that results/paper_s9/paper_numbers.json recomputes are replaced from that file once it exists.",
+ "benchmark_rewrites": {
+  "b": 0.172,
+  "lo": 0.15,
+  "hi": 0.196,
+  "share_raising": 0.752,
+  "by_generator": {
+   "appealing|opus": 0.229,
+   "appealing|sonnet": 0.235,
+   "appealing|haiku": 0.151,
+   "concise|opus": 0.1,
+   "concise|sonnet": 0.092
+  },
+  "n_fit_p0": 6170,
+  "source": "job 817664 (code/frozen_rewrites.py): pre-ChatGPT text-to-price model applied to each original and its rewrite; ai_cheap_talk.md F4; WORKLOG s8 section 12",
+  "by_generator_ci": {
+   "appealing|opus": [
+    0.189,
+    0.266
+   ],
+   "appealing|sonnet": [
+    0.18,
+    0.293
+   ],
+   "appealing|haiku": [
+    0.092,
+    0.211
+   ],
+   "concise|opus": [
+    0.056,
+    0.141
+   ],
+   "concise|sonnet": [
+    0.041,
+    0.142
+   ]
+  }
+ },
+ "inform_spreads": {
+  "full": {
+   "P0": [
+    0.92,
+    0.62,
+    1.17
+   ],
+   "P1": [
+    0.86,
+    0.5,
+    1.25
+   ],
+   "P2": [
+    0.98,
+    0.39,
+    1.72
+   ],
+   "P2/P0": [
+    1.12,
+    0.4,
+    2.12
+   ]
+  },
+  "facts": {
+   "P0": [
+    0.93,
+    0.58,
+    1.12
+   ],
+   "P1": [
+    1.22,
+    0.93,
+    1.59
+   ],
+   "P2": [
+    1.09,
+    0.67,
+    1.51
+   ],
+   "P2/P0": [
+    1.19,
+    0.71,
+    1.47
+   ]
+  },
+  "style": {
+   "P0": [
+    0.71,
+    0.32,
+    1.12
+   ],
+   "P1": [
+    0.84,
+    0.5,
+    1.14
+   ],
+   "P2": [
+    0.58,
+    0.11,
+    1.31
+   ],
+   "P2/P0": [
+    0.95,
+    0.2,
+    3.39
+   ]
+  },
+  "n_per_period": 1941,
+  "draws": 20,
+  "source": "job 817639 (code/informativeness.py v3, main AI rule): mean and 2.5/97.5 percentiles over 20 agency-bootstrap draws; ai_cheap_talk.md section 4a"
+ },
+ "frozen_field": {
+  "union": {
+   "s": [
+    0.244,
+    5.22
+   ],
+   "r": [
+    0.064,
+    0.44
+   ],
+   "s_minus_r": [
+    0.18,
+    1.21
+   ]
+  },
+  "lex": {
+   "s": [
+    0.209,
+    4.26
+   ],
+   "r": [
+    0.005,
+    0.03
+   ],
+   "s_minus_r": [
+    0.205,
+    1.45
+   ]
+  },
+  "c1": {
+   "s": [
+    0.23,
+    3.79
+   ],
+   "r": [
+    0.261,
+    1.32
+   ],
+   "s_minus_r": [
+    -0.031,
+    -0.15
+   ]
+  },
+  "format": "[coefficient in log points, t statistic]; within agency and subcategory, clustered by agency; model fit on all 6,643 priced listings started before ChatGPT",
+  "source": "jobs 817639 (union), 817681 (lex), 817682 (c1); ai_cheap_talk.md section 4a",
+  "n": {
+   "union": {
+    "listings": 1490,
+    "agencies": 330,
+    "era_priced": 1941,
+    "era_agencies": 758,
+    "era_ai": 384,
+    "era_ai_agencies": 240,
+    "era_human": 1557
+   },
+   "lex": {
+    "listings": 1490,
+    "agencies": 330,
+    "era_ai": 279,
+    "era_human": 1662
+   },
+   "c1": {
+    "listings": 1490,
+    "agencies": 330,
+    "era_ai": 224,
+    "era_human": 1717
+   },
+   "source": "job logs on Mercury, read 2026-10-31: log/s8_inform3_817639.out (union), log/s8_frozen_lex_817681.out, log/s8_frozen_c1_817682.out; listings and agencies = n and clusters of the within-agency regression (agency and subcategory effects, log photos and reserve, clustered by agency); era_* = the assistant era's priced listings"
+  }
+ },
+ "detector": {
+  "auc_crossfit": 0.956,
+  "tau": 0.679,
+  "fpr": {
+   "c1": {
+    "pre": 0.01,
+    "oot": 0.0072
+   },
+   "lex": {
+    "pre": 0.0013,
+    "oot": 0.0039
+   },
+   "union": {
+    "pre": 0.0112,
+    "oot": 0.0104
+   },
+   "union97": {
+    "pre": 0.0311,
+    "oot": 0.0304
+   }
+  },
+  "fpr_note": "pre = listings started 2019-01-01 to 2022-11-29; oot = started 2022-12-01 to 2025-01-28 (ChatGPT available, no tool)",
+  "recall_rewrites_c1": {
+   "all": 0.758,
+   "appealing|haiku": 0.87,
+   "appealing|opus": 0.975,
+   "appealing|sonnet": 0.99,
+   "concise|opus": 0.43,
+   "concise|sonnet": 0.31
+  },
+  "rewrites_above_own_original": 0.975,
+  "blind_read": {
+   "reader1_A": 22,
+   "reader2_A": 21,
+   "agree_of_100": 89,
+   "kappa3": [
+    0.765,
+    0.633,
+    0.882
+   ],
+   "kappa_ai_vs_not": [
+    0.852,
+    0.702,
+    0.968
+   ],
+   "recall_vs_reader1": {
+    "c1": 0.36,
+    "lex": 0.64,
+    "union": 0.73
+   },
+   "recall_union_vs_reader2": [
+    16,
+    21
+   ],
+   "recall_union_vs_reader1": [
+    16,
+    22
+   ],
+   "controls_labelled_ai": [
+    0,
+    25
+   ],
+   "controls_flagged_by_rule": [
+    2,
+    25
+   ],
+   "score_auc_vs_reader1_A_vs_H": 0.905
+  },
+  "liang_failure": {
+   "true0_est": [
+    0.098,
+    0.203
+   ],
+   "true040_est": 0.364
+  },
+  "source": "jobs 817614 and 817618 (code/detector.py), code/detector_rules.py, blind read (code/blind_sample.py) and second reader; WORKLOG s8 sections 11 and 13; ai_cheap_talk.md section 3.3"
+ },
+ "adoption": {
+  "agencies_ever": 263,
+  "agencies_tool_era": 813,
+  "agencies_june_2025": 74,
+  "ever_use_by_pretool_length_quartile": [
+   0.279,
+   0.24,
+   0.322,
+   0.314
+  ],
+  "ai_share_by_opening_bid_fifth": [
+   0.149,
+   0.237,
+   0.169,
+   0.215,
+   0.266
+  ],
+  "stayers_used_early": 25,
+  "stayers_stopped": 19,
+  "stayers_use": [
+   0.733,
+   0.139
+  ],
+  "fall_windows": {
+   "may_aug_2025": 0.421,
+   "oct2025_feb2026": 0.108,
+   "listings_each": 739,
+   "agencies_each": 322,
+   "agencies_common": 54
+  },
+  "source": "job 817663 (code/adoption.py, main rule); ai_cheap_talk.md F1; WORKLOG s8 section 12",
+  "fall_decomposition": {
+   "from": 0.421,
+   "to": 0.108,
+   "mix_among_stayers": -0.013,
+   "use_among_stayers": -0.051,
+   "entrants": 0.096,
+   "leavers": -0.345,
+   "agencies_both_windows": 54,
+   "source": "job 817663 (code/adoption.py, union rule); WORKLOG s8 section 12: 'decomposition mix -0.013, use -0.051, entrants +0.096, leavers -0.345'"
+  }
+ },
+ "tool_dating": {
+  "first_capture_with_code": "2025-01-29",
+  "jan2025_pages_with_code": [
+   11,
+   236
+  ],
+  "feb2025_pages_with_code": [
+   204,
+   205
+  ],
+  "later_revision": "2026-01-31",
+  "source": "code/tool_dating.py over all 17,377 listing pages (#improvedDescriptionText in the bundled seller-editor code); WORKLOG s8 section 7"
+ },
+ "parse_audit": {
+  "pages": 17660,
+  "listings": 17377,
+  "non_listings": 283,
+  "agencies_all": 2866,
+  "identical_fields": [
+   "agency",
+   "final bid",
+   "bid count",
+   "opening bid",
+   "reserve",
+   "end date"
+  ],
+  "source": "job 817581 (code/mb_parse.py s8p1) compared with the inherited mb6 parse by code/audit_parse.py; WORKLOG s8 section 6"
+ },
+ "sample": {
+  "analysis_listings": 13705,
+  "analysis_agencies": 2424,
+  "priced": 12030,
+  "start_min": "2019-01-14",
+  "start_max": "2026-03-23",
+  "periods": {
+   "P0": 7563,
+   "P1": 3866,
+   "P2": 2276
+  },
+  "source": "code/analysis_core.py load(); ai_cheap_talk.md section 2"
+ },
+ "tool_era_samedaybatches": {
+  "union": {
+   "batches": 70,
+   "questions": -0.057
+  },
+  "lex": {
+   "batches": 62,
+   "questions": -0.216
+  },
+  "source": "jobs 817630 (union), 817632 (lex), code/analysis_questions.py; WORKLOG s8 section 12"
+ },
+ "vehicles": {
+  "priced": 4331,
+  "ai_tool_era": 144,
+  "n_after_singletons": 2824,
+  "agencies": 581,
+  "within_r2": 0.338,
+  "age_effect_pct_per_year": -12.8,
+  "does_not_start_lp": -0.25,
+  "not_drivable_lp": -0.33,
+  "oot_hedonic_r2": 0.59,
+  "median_price_tool_era": 4550,
+  "mde_lp": 0.273,
+  "source": "jobs 820155-820157 (code/price_hedonics.py); ai_cheap_talk.md F5; WORKLOG s8 section 15"
+ },
+ "rewrite_audit": {
+  "numbers_kept": 0.977,
+  "defects_kept": 0.903,
+  "adds_quality_claim": 0.218,
+  "words_ratio": 3.09,
+  "by_generator": {
+   "appealing|opus": {
+    "n": 200,
+    "numbers_kept": 0.986,
+    "defects_kept": 0.953,
+    "adds_quality": 0.42,
+    "promo_added": 1.52,
+    "words_ratio": 5.13
+   },
+   "appealing|sonnet": {
+    "n": 100,
+    "numbers_kept": 0.974,
+    "defects_kept": 0.905,
+    "adds_quality": 0.2,
+    "promo_added": 0.37,
+    "words_ratio": 3.24
+   },
+   "appealing|haiku": {
+    "n": 100,
+    "numbers_kept": 0.968,
+    "defects_kept": 0.868,
+    "adds_quality": 0.13,
+    "promo_added": 0.1,
+    "words_ratio": 2.75
+   },
+   "concise|opus": {
+    "n": 100,
+    "numbers_kept": 0.985,
+    "defects_kept": 0.911,
+    "adds_quality": 0.06,
+    "promo_added": 0.0,
+    "words_ratio": 1.15
+   },
+   "concise|sonnet": {
+    "n": 100,
+    "numbers_kept": 0.962,
+    "defects_kept": 0.845,
+    "adds_quality": 0.07,
+    "promo_added": 0.0,
+    "words_ratio": 1.11
+   }
+  },
+  "note": "final audit of all 600 pairs, as validated into build_report.py EXTRA['rewrites'] in Session 8 (code/rewrite_audit.py)",
+  "source": "code/rewrite_audit.py (run locally); WORKLOG s8 section 9",
+  "promo_added": 0.59
+ },
+ "late_vocabulary": {
+  "window": "listings started 2025-10-01 to 2026-03-31",
+  "listings": 1077,
+  "share_of_listings": {
+   "features": 0.074,
+   "reliable": 0.043,
+   "designed": 0.034,
+   "carefully": 0.02
+  },
+  "ratio_to_2019_2022": {
+   "reliable": 19,
+   "carefully": 43
+  },
+  "share_2025_for_comparison": {
+   "features": 0.1,
+   "reliable": 0.0764
+  },
+  "source": "code/excess_window.py and code/excess_vocab.py; WORKLOG s8 section 7 ('Late window ... \"features\" 7.4%, \"reliable\" 4.3% (x19), \"designed\" 3.4%, new \"carefully\" 2.0% (x43)'; 2025: 'reliable' 7.64%, 'features' 10.00%)"
+ },
+ "questions": {
+  "source": "job 877527 s10_qsample (log: tool-era listings 2276; with a question before the close 1291); the fact extractor's facts.json in the Session 10 scratchpad (2,096 facts on 183 listings; Session 10 WORKLOG section 14)",
+  "tool_era_listings": 2276,
+  "tool_era_with_question": 1291,
+  "facts": 2096,
+  "sample_listings": 183
+ }
+}
